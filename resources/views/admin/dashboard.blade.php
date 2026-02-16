@@ -24,81 +24,15 @@
     <div class="stat-label">Total Users</div>
     <div class="stat-change stat-up">↑ {{ $stats['online_users'] }} online now</div>
   </div>
-  <div class="stat-card">
-    <div class="stat-icon" style="background:rgba(37,99,235,.1);">🏢</div>
-    <div class="stat-num">{{ number_format($stats['total_companies']) }}</div>
-    <div class="stat-label">Companies</div>
-    <div class="stat-change stat-up">↑ {{ $stats['active_companies'] }} active</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-icon" style="background:rgba(249,115,22,.1);">💬</div>
-    <div class="stat-num">{{ number_format($stats['total_messages']) }}</div>
-    <div class="stat-label">Messages Sent</div>
-    <div class="stat-change stat-up">↑ {{ $stats['messages_today'] }} today</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-icon" style="background:rgba(124,58,237,.1);">🗂️</div>
-    <div class="stat-num">{{ number_format($stats['total_files']) }}</div>
-    <div class="stat-label">Shared Files</div>
-    <div class="stat-change" style="color:var(--muted);">{{ $stats['scheduled_pending'] }} msgs scheduled</div>
-  </div>
+
+
 </div>
 
 {{-- Second row --}}
 <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-bottom:20px;">
 
-  {{-- Recent Messages --}}
-  <div class="card">
-    <div class="card-title">
-      Recent Messages
-      <a href="#" class="btn btn-outline btn-sm">View all</a>
-    </div>
-    @forelse($recentMessages as $msg)
-    <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(100,80,200,.05);">
-      <div class="av" style="background:var(--grad);">{{ $msg->sender->initials ?? '?' }}</div>
-      <div style="flex:1;min-width:0;">
-        <p style="font-size:.84rem;font-weight:600;color:var(--text-h);">{{ $msg->sender->name ?? 'Unknown' }}</p>
-        <p style="font-size:.8rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px;">
-          {{ Str::limit($msg->body, 60) }}
-        </p>
-      </div>
-      <div style="text-align:right;flex-shrink:0;">
-        <div style="font-size:.72rem;color:var(--muted2);">{{ $msg->created_at->diffForHumans() }}</div>
-        <div style="font-size:.72rem;color:var(--muted2);">#{{ $msg->channel->name ?? '?' }}</div>
-      </div>
-    </div>
-    @empty
-    <p style="color:var(--muted);font-size:.88rem;text-align:center;padding:24px 0;">No messages yet.</p>
-    @endforelse
-  </div>
 
-  {{-- File Stats --}}
-  <div class="card">
-    <div class="card-title">Media Library</div>
-    <div style="display:flex;flex-direction:column;gap:14px;">
-      @php
-        $fileTypes = [
-          ['label'=>'Images','count'=>$stats['files_images'],'icon'=>'🖼️','color'=>'#e91e8c'],
-          ['label'=>'Videos','count'=>$stats['files_videos'],'icon'=>'🎬','color'=>'#2563eb'],
-          ['label'=>'Audio','count'=>\App\Models\SharedFile::audio()->count(),'icon'=>'🎵','color'=>'#7c3aed'],
-          ['label'=>'Documents','count'=>\App\Models\SharedFile::documents()->count(),'icon'=>'📄','color'=>'#f97316'],
-          ['label'=>'Links','count'=>\App\Models\SharedFile::links()->count(),'icon'=>'🔗','color'=>'#06b6d4'],
-        ];
-        $total = max($stats['total_files'], 1);
-      @endphp
-      @foreach($fileTypes as $ft)
-      <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-          <span style="font-size:.82rem;">{{ $ft['icon'] }} {{ $ft['label'] }}</span>
-          <span style="font-size:.82rem;font-weight:600;color:var(--text-h);">{{ $ft['count'] }}</span>
-        </div>
-        <div style="height:6px;background:rgba(100,80,200,.1);border-radius:4px;overflow:hidden;">
-          <div style="height:100%;width:{{ $total > 0 ? round($ft['count']/$total*100) : 0 }}%;background:{{ $ft['color'] }};border-radius:4px;transition:width .5s;"></div>
-        </div>
-      </div>
-      @endforeach
-    </div>
-  </div>
+
 </div>
 
 {{-- Bottom row --}}
