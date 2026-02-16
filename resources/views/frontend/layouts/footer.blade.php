@@ -106,9 +106,9 @@
     <div class="footer-bottom">
         <p>© 2025 Akshar Plus. All rights reserved.</p>
         <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
+            <a href="{{ route('privacy.policy') }}">Privacy Policy</a>
+            <a href="{{ route('terms.conditions') }}">Terms of Service</a>
+            <!-- <a href="#">Cookie Policy</a> -->
         </div>
     </div>
 </footer>

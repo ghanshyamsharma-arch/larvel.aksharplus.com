@@ -47,4 +47,17 @@ class FrontendController extends Controller
 
         return view('frontend.home', compact('stats', 'testimonials', 'heroes', 'services', 'included', 'video', 'multi', 'smartMessage', 'images', 'videos', 'audio', 'docs', 'links', 'reviewSec'));
     }
+    public function privacy()
+    {
+        $policy = Page::where('id', 7)->first();
+
+        return view('frontend.privacy-policy', compact('policy'));
+    }
+
+
+    public function terms()
+    {
+        $terms = Page::where('id', 6)->first();
+        return view('frontend.terms-conditions', compact('terms'));
+    }
 }

@@ -34,6 +34,18 @@ Route::post(
     [SubscriberController::class, 'store']
 )
     ->name('subscribe');
+
+Route::get(
+    '/privacy-policy',
+    [FrontendController::class, 'privacy']
+)
+    ->name('privacy.policy');
+
+Route::get(
+    '/terms-and-conditions',
+    [FrontendController::class, 'terms']
+)
+    ->name('terms.conditions');
 /*
 |--------------------------------------------------------------------------
 | Admin Auth Routes
