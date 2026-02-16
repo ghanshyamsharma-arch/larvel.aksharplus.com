@@ -4,12 +4,17 @@ use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroSectionController;
+use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SocialLinkController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +29,11 @@ Route::prefix('blog')->name('blog.')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('index');
     Route::get('/{slug}', [BlogController::class, 'show'])->name('show');
 });
+Route::post(
+    '/subscribe',
+    [SubscriberController::class, 'store']
+)
+    ->name('subscribe');
 /*
 |--------------------------------------------------------------------------
 | Admin Auth Routes
@@ -59,6 +69,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('services', ServiceController::class);
         //Page manager
         Route::resource('pages', PageController::class);
+        //Media Manager
+        Route::resource('media', MediaController::class)
+            ->parameters([
+                'media' => 'media'
+            ]);
+        //Testimonials
+        Route::resource('testimonials', TestimonialController::class);
         // Dashboard
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::get('/', fn() => redirect()->route('admin.dashboard'));
@@ -70,5 +87,23 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Companies
         Route::resource('companies', CompanyController::class);
+        Route::resource('social-links', SocialLinkController::class);
+        Route::patch('social-links/{socialLink}/toggle-status', [SocialLinkController::class, 'toggleStatus'])
+            ->name('social-links.toggle-status');
+        Route::post('social-links/reorder', [SocialLinkController::class, 'reorder'])
+            ->name('social-links.reorder');
     });
+    //Subscribe
+    Route::get(
+        '/subscribers',
+        [AdminSubscriberController::class, 'index']
+    )
+        ->name('subscribers.index');
+
+
+    Route::delete(
+        '/subscribers/{id}',
+        [AdminSubscriberController::class, 'destroy']
+    )
+        ->name('subscribers.delete');
 });

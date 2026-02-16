@@ -10,6 +10,10 @@
     <title>Akshar Plus — Live Chat, Audio & Video Calling Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    @if (request()->is('blog') || request()->is('blog/*'))
+    <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+    @endif
     <style>
         .feature-card img {
             width: 50px !important;
@@ -29,11 +33,11 @@
 
         <div class="nav-links">
             <a href="{{ route('home') }}">Home</a>
-            <a href="#features">Features</a>
-            <a href="#calling">Calling</a>
-            <a href="#multicompany">Multi-Company</a>
-            <a href="#files">Media Library</a>
-            <a href="#testimonials">Reviews</a>
+            <a href="{{ route('home') }}#features">Features</a>
+            <a href="{{ route('home') }}#calling">Calling</a>
+            <a href="{{ route('home') }}#multicompany">Multi-Company</a>
+            <a href="{{ route('home') }}#files">Media Library</a>
+            <a href="{{ route('home') }}#testimonials">Reviews</a>
 
             <a href="{{ route('blog.index') }}"
                 class="{{ request()->routeIs('blog.*') ? 'active' : '' }}">
@@ -51,9 +55,14 @@
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#features">Features</a>
-        <a href="#calling">Calling</a>
-        <a href="#multicompany">Multi-Company</a>
-        <a href="#files">Media Library</a>
-        <a href="#testimonials">Reviews</a>
+        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('home') }}#features">Features</a>
+        <a href="{{ route('home') }}#calling">Calling</a>
+        <a href="{{ route('home') }}#multicompany">Multi-Company</a>
+        <a href="{{ route('home') }}#files">Media Library</a>
+        <a href="{{ route('home') }}#testimonials">Reviews</a>
+        <a href="{{ route('blog.index') }}"
+            class="{{ request()->routeIs('blog.*') ? 'active' : '' }}">
+            Blog
+        </a>
     </div>

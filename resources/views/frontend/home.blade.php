@@ -178,77 +178,26 @@ visible">
 <!-- ══════════════════ PIN + SCHEDULE ══════════════════ -->
 <section class="pinschedule-section" id="pinschedule">
   <div style="text-align:center;margin-bottom:72px;" class="reveal visible">
-    <div class="section-label"><span class="dot"></span> Smart Messaging</div>
-    <h2 class="section-title">Pin Important Updates &amp;<br><span class="grad-text">Schedule Any Message</span></h2>
-    <p class="section-sub" style="margin:0 auto;">Keep your team focused on what matters. Pin critical announcements and schedule messages to go out at exactly the right time — even while you're offline.</p>
+    <div class="section-label"><span class="dot"></span> {{$smartMessage->title}}</div>
+    {!!$smartMessage->description!!}
   </div>
   <div class="ps-grid">
     <!-- Pinned Messages -->
     <div class="ps-card reveal reveal-delay-1 visible">
-      <div class="ps-card-head">
-        <div class="ps-head-icon pin-bg">📌</div>
-        <h3>Pinned Messages</h3>
-        <span style="margin-left:auto;background:rgba(251,191,36,.15);color:#b45309;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;">3 pinned</span>
-      </div>
-      <div class="ps-card-body">
-        <div class="pin-item">
-          <div class="pin-dot" style="background:var(--violet);"></div>
-          <div class="pin-text">
-            <p>Q4 OKR Document — Now Live</p>
-            <span>Pinned by Sonia R. · #general · 2 hrs ago</span>
-          </div>
-          <button class="pin-unpin">Unpin</button>
-        </div>
-        <div class="pin-item">
-          <div class="pin-dot" style="background:var(--teal);"></div>
-          <div class="pin-text">
-            <p>New API credentials shared</p>
-            <span>Pinned by Arjun M. · #engineering · 1 day ago</span>
-          </div>
-          <button class="pin-unpin">Unpin</button>
-        </div>
-        <div class="pin-item">
-          <div class="pin-dot" style="background:var(--amber);"></div>
-          <div class="pin-text">
-            <p>All-hands call: Friday 5 PM</p>
-            <span>Pinned by Admin · #announcements · 3 days ago</span>
-          </div>
-          <button class="pin-unpin">Unpin</button>
-        </div>
-      </div>
+      @if($smartMessage->image)
+      <img src="{{ asset('storage/'.$smartMessage->image) }}">
+      @endif
+
     </div>
 
     <!-- Scheduled Messages -->
     <div class="ps-card reveal reveal-delay-2 visible">
-      <div class="ps-card-head">
-        <div class="ps-head-icon sched-bg">⏰</div>
-        <h3>Scheduled Messages</h3>
-        <span style="margin-left:auto;background:rgba(37,99,235,.1);color:var(--blue);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;">4 queued</span>
-      </div>
-      <div class="ps-card-body">
-        <div class="sched-item">
-          <div class="sched-time">Tomorrow 9 AM</div>
-          <div class="sched-text">"Good morning team! 🌟 Sprint 12 begins today…"</div>
-          <button class="sched-cancel">Cancel</button>
-        </div>
-        <div class="sched-item">
-          <div class="sched-time">Fri 5 PM</div>
-          <div class="sched-text">"Weekly wrap-up summary is ready for review…"</div>
-          <button class="sched-cancel">Cancel</button>
-        </div>
-        <div class="sched-item">
-          <div class="sched-time">Mon 10 AM</div>
-          <div class="sched-text">"Reminder: performance reviews due by EOD…"</div>
-          <button class="sched-cancel">Cancel</button>
-        </div>
-        <div class="sched-item">
-          <div class="sched-time">Mon 3 PM</div>
-          <div class="sched-text">"Client presentation assets uploaded to Design…"</div>
-          <button class="sched-cancel">Cancel</button>
-        </div>
-      </div>
+      @if($smartMessage->additional_image)
+      <img src="{{ asset('storage/'.$smartMessage->additional_image) }}">
+      @endif
     </div>
   </div>
+
 </section>
 
 <!-- ══════════════════ FILES MEDIA SECTION ══════════════════ -->
@@ -270,59 +219,46 @@ visible">
   <!-- Images -->
   <div class="files-panel active" id="tab-images">
     <div class="files-grid-4">
-      <div class="img-thumb" style="background:linear-gradient(135deg,#fce4ec,#f8bbd9);font-size:2.5rem;">🎨</div>
-      <div class="img-thumb" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);font-size:2.5rem;">📊</div>
-      <div class="img-thumb" style="background:linear-gradient(135deg,#e0f7fa,#b2ebf2);font-size:2.5rem;">🏔️</div>
-      <div class="img-thumb" style="background:linear-gradient(135deg,#fff8e1,#ffecb3);font-size:2.5rem;">✨</div>
-      <div class="img-thumb" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);font-size:2.5rem;">🖼️</div>
-      <div class="img-thumb" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);font-size:2.5rem;">🌿</div>
-      <div class="img-thumb" style="background:linear-gradient(135deg,#fbe9e7,#ffccbc);font-size:2.5rem;">🌅</div>
-      <div class="img-thumb" style="background:linear-gradient(135deg,#e1f5fe,#b3e5fc);font-size:2.5rem;">🎭</div>
+
+      @foreach($images as $item)
+
+      <img class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="150">
+
+      @endforeach
     </div>
   </div>
 
   <!-- Videos -->
   <div class="files-panel" id="tab-videos">
     <div class="files-grid-2">
+      @foreach($videos as $item)
+
       <div class="vid-thumb vid-thumb-img" style="background:linear-gradient(135deg,#1a1030,#2d1b69);">
         <div class="vid-play">
           <div class="vid-play-btn">▶</div>
-          <p>Sprint Review Recording</p>
+          <p>{{$item->title}}</p>
         </div>
-        <div class="vid-dur">24:10</div>
+        <div class="vid-dur">{{$item->size}}</div>
       </div>
-      <div class="vid-thumb vid-thumb-img" style="background:linear-gradient(135deg,#0d1b2a,#1a3a5c);">
-        <div class="vid-play">
-          <div class="vid-play-btn">▶</div>
-          <p>Product Demo v2.1</p>
-        </div>
-        <div class="vid-dur">08:43</div>
-      </div>
-      <div class="vid-thumb vid-thumb-img" style="background:linear-gradient(135deg,#1a0820,#3d1460);">
-        <div class="vid-play">
-          <div class="vid-play-btn">▶</div>
-          <p>Client Onboarding Walk-through</p>
-        </div>
-        <div class="vid-dur">15:22</div>
-      </div>
-      <div class="vid-thumb vid-thumb-img" style="background:linear-gradient(135deg,#0d2818,#1a5c3a);">
-        <div class="vid-play">
-          <div class="vid-play-btn">▶</div>
-          <p>Team Building Event Highlights</p>
-        </div>
-        <div class="vid-dur">03:57</div>
-      </div>
+
+      @endforeach
+
+
+
+
     </div>
   </div>
 
   <!-- Audio -->
   <div class="files-panel" id="tab-audio">
     <div class="files-list">
+      @foreach($audio as $item)
+
       <div class="audio-item">
-        <div class="audio-icon">🎵</div>
+        <div class="audio-icon"><img class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
         <div class="audio-info">
-          <p>Weekly Standup — Voice Note</p>
-          <span>Sonia R. · #design · Yesterday</span>
+          <p>{{$item->title}}</p>
+          <span>{{$item->link}}</span>
           <div class="audio-waveform">
             <span style="height:6px;animation-delay:0s"></span>
             <span style="height:14px;animation-delay:.1s"></span>
@@ -336,112 +272,46 @@ visible">
             <span style="height:10px;animation-delay:.9s"></span>
           </div>
         </div>
-        <div class="audio-dur">2:34</div>
+        <div class="audio-dur">{{$item->size}}</div>
       </div>
-      <div class="audio-item">
-        <div class="audio-icon" style="background:linear-gradient(135deg,var(--blue),var(--sky));">🎤</div>
-        <div class="audio-info">
-          <p>Q4 Kickoff Announcement</p>
-          <span>Admin · #general · 3 days ago</span>
-          <div class="audio-waveform">
-            <span style="height:10px;animation-delay:0s"></span>
-            <span style="height:6px;animation-delay:.15s"></span>
-            <span style="height:16px;animation-delay:.3s"></span>
-            <span style="height:8px;animation-delay:.45s"></span>
-            <span style="height:18px;animation-delay:.6s"></span>
-            <span style="height:12px;animation-delay:.75s"></span>
-            <span style="height:6px;animation-delay:.9s"></span>
-            <span style="height:14px;animation-delay:1.05s"></span>
-          </div>
-        </div>
-        <div class="audio-dur">1:12</div>
-      </div>
-      <div class="audio-item">
-        <div class="audio-icon" style="background:linear-gradient(135deg,var(--teal),var(--cyan));">🎙️</div>
-        <div class="audio-info">
-          <p>Client Feedback Recording</p>
-          <span>Priya K. · #client-acme · 1 week ago</span>
-          <div class="audio-waveform">
-            <span style="height:14px;animation-delay:0s"></span>
-            <span style="height:18px;animation-delay:.12s"></span>
-            <span style="height:8px;animation-delay:.24s"></span>
-            <span style="height:12px;animation-delay:.36s"></span>
-            <span style="height:16px;animation-delay:.48s"></span>
-            <span style="height:6px;animation-delay:.6s"></span>
-            <span style="height:14px;animation-delay:.72s"></span>
-            <span style="height:10px;animation-delay:.84s"></span>
-          </div>
-        </div>
-        <div class="audio-dur">4:08</div>
-      </div>
+
+      @endforeach
+
+
     </div>
   </div>
 
   <!-- Links -->
   <div class="files-panel" id="tab-links">
     <div class="files-list">
+      @foreach($links as $item)
       <a class="link-item" href="#">
-        <div class="link-favicon">🌐</div>
+        <div class="link-favicon"><img class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
         <div class="link-info">
-          <p>Akshar Plus Documentation</p><span>docs.aksharplus.io · Shared by Arjun M. · Today</span>
+          <p>{{$item->title}}</p><span>{{$item->link}}</span>
         </div>
         <span class="link-arrow">↗</span>
       </a>
-      <a class="link-item" href="#">
-        <div class="link-favicon">📊</div>
-        <div class="link-info">
-          <p>Q4 Analytics Report — Google Sheets</p><span>docs.google.com · Shared by Sonia R. · Yesterday</span>
-        </div>
-        <span class="link-arrow">↗</span>
-      </a>
-      <a class="link-item" href="#">
-        <div class="link-favicon">🎨</div>
-        <div class="link-info">
-          <p>Brand Kit 2025 — Figma File</p><span>figma.com · Shared by Priya K. · 3 days ago</span>
-        </div>
-        <span class="link-arrow">↗</span>
-      </a>
-      <a class="link-item" href="#">
-        <div class="link-favicon">📹</div>
-        <div class="link-info">
-          <p>Product Walkthrough — Loom Video</p><span>loom.com · Shared by Vikram B. · 1 week ago</span>
-        </div>
-        <span class="link-arrow">↗</span>
-      </a>
+      @endforeach
+
     </div>
   </div>
 
   <!-- Documents -->
   <div class="files-panel" id="tab-docs">
     <div class="files-list">
+      @foreach($docs as $item)
       <div class="doc-item">
-        <div class="doc-icon" style="background:rgba(37,99,235,.1);">📝</div>
+        <div class="doc-icon" style="background:rgba(37,99,235,.1);"><img class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
         <div class="doc-info">
-          <p>Sprint 12 Planning Document.docx</p><span>Arjun M. · #engineering · Today · </span>
+          <p>{{$item->title}}</p><span>{{$item->link}} </span>
         </div>
-        <div class="doc-size">248 KB</div>
+        <div class="doc-size">{{$item->size}}</div>
       </div>
-      <div class="doc-item">
-        <div class="doc-icon" style="background:rgba(34,197,94,.1);">📊</div>
-        <div class="doc-info">
-          <p>Q4 Budget Forecast.xlsx</p><span>Admin · #finance · Yesterday</span>
-        </div>
-        <div class="doc-size">1.2 MB</div>
-      </div>
-      <div class="doc-item">
-        <div class="doc-icon" style="background:rgba(239,68,68,.1);">📄</div>
-        <div class="doc-info">
-          <p>Client Proposal — ACME Corp.pdf</p><span>Priya K. · #sales · 2 days ago</span>
-        </div>
-        <div class="doc-size">3.8 MB</div>
-      </div>
-      <div class="doc-item">
-        <div class="doc-icon" style="background:rgba(249,115,22,.1);">📋</div>
-        <div class="doc-info">
-          <p>Akshar Plus Brand Guidelines.pdf</p><span>Design Team · #general · 1 week ago</span>
-        </div>
-        <div class="doc-size">5.1 MB</div>
-      </div>
+      @endforeach
+
+
+
     </div>
   </div>
 </section>
@@ -449,157 +319,84 @@ visible">
 <!-- ══════════════════ TESTIMONIALS ══════════════════ -->
 <section class="testimonials" id="testimonials">
   <div style="text-align:center;margin-bottom:72px;" class="reveal visible">
-    <div class="section-label"><span class="dot"></span> Customer Love</div>
-    <h2 class="section-title">Teams Who Swear By<br><span class="grad-text">Akshar Plus</span></h2>
-    <p class="section-sub" style="margin:0 auto;">Join 50,000+ users across 2,000+ companies who've made Akshar Plus their primary communication platform.</p>
+    <div class="section-label"><span class="dot"></span> {{$reviewSec->title}}</div>
+    {!!$reviewSec->description!!}
   </div>
 
   <div class="testi-track-wrap">
-    <div class="testi-track" id="testiTrack" style="transform: translateX(-557px);">
+    <div class="testi-track" id="testiTrack">
+
+      @php
+      $gradients = [
+      'linear-gradient(135deg,#e91e8c,#7c3aed)',
+      'linear-gradient(135deg,#2563eb,#06b6d4)',
+      'linear-gradient(135deg,#f97316,#fbbf24)',
+      'linear-gradient(135deg,#7c3aed,#06b6d4)',
+      'linear-gradient(135deg,#e91e8c,#f97316)',
+      'linear-gradient(135deg,#06b6d4,#2563eb)',
+      ];
+      @endphp
+
+      @foreach($testimonials as $index => $item)
       <div class="testi-card">
-        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="testi-quote">The multi-company workspace is a game-changer. We manage 6 client accounts from one login and the isolation between workspaces is flawless.</p>
+
+        <div class="testi-stars">
+          @for($i = 1; $i <= 5; $i++)
+            <span>★</span>
+            @endfor
+        </div>
+
+        <p class="testi-quote">{{ $item->content }}</p>
+
         <div class="testi-author">
-          <div class="testi-av" style="background:linear-gradient(135deg,#e91e8c,#7c3aed)">SR</div>
+          @if($item->avatar)
+          <img src="{{ asset('storage/' . $item->avatar) }}"
+            class="testi-av"
+            style="object-fit:cover;"
+            alt="{{ $item->name }}">
+          @else
+          @php
+          $initials = strtoupper(implode('', array_map(
+          fn($w) => $w[0],
+          array_filter(explode(' ', trim($item->name)))
+          )));
+          $initials = substr($initials, 0, 2);
+          $grad = $gradients[$index % count($gradients)];
+          @endphp
+          <div class="testi-av"
+            style="background: {{ $grad }};">
+            {{ $initials }}
+          </div>
+
+          @endif
+
           <div>
-            <div class="testi-name">Sonia Rao</div>
-            <div class="testi-role">Creative Director · Pixelcraft</div>
+            <div class="testi-name">{{ $item->name }}</div>
+            <div class="testi-role">
+              {{ $item->designation }}@if($item->company) · {{ $item->company }}@endif
+            </div>
           </div>
         </div>
+
       </div>
-      <div class="testi-card">
-        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="testi-quote">We replaced 4 tools — Slack, Zoom, Loom, and Dropbox — with just Akshar Plus. The media library alone saved us hours of file hunting every week.</p>
-        <div class="testi-author">
-          <div class="testi-av" style="background:linear-gradient(135deg,#2563eb,#06b6d4)">AM</div>
-          <div>
-            <div class="testi-name">Arjun Mehta</div>
-            <div class="testi-role">CTO · NovaByte Technologies</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="testi-quote">Pinned messages and scheduled broadcasts have transformed how we run company-wide communications. Our team actually reads announcements now!</p>
-        <div class="testi-author">
-          <div class="testi-av" style="background:linear-gradient(135deg,#f97316,#fbbf24)">PK</div>
-          <div>
-            <div class="testi-name">Priya Kapoor</div>
-            <div class="testi-role">Head of Ops · LaunchPad HQ</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="testi-quote">Video call quality is outstanding and the noise cancellation is exceptional. Our remote team feels more connected than ever — even across 3 time zones.</p>
-        <div class="testi-author">
-          <div class="testi-av" style="background:linear-gradient(135deg,#7c3aed,#06b6d4)">VB</div>
-          <div>
-            <div class="testi-name">Vikram Bose</div>
-            <div class="testi-role">Engineering Lead · CloudScale</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="testi-quote">Scheduled messages have made our global async communication effortless. I draft messages in the evening and they send at the right local time for each team.</p>
-        <div class="testi-author">
-          <div class="testi-av" style="background:linear-gradient(135deg,#e91e8c,#f97316)">NJ</div>
-          <div>
-            <div class="testi-name">Neha Joshi</div>
-            <div class="testi-role">Product Manager · MarketPulse</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="testi-quote">The audio file organisation is incredible. Every voice note and recording is right there in the media library — searchable, categorised, and ready to replay instantly.</p>
-        <div class="testi-author">
-          <div class="testi-av" style="background:linear-gradient(135deg,#06b6d4,#2563eb)">RS</div>
-          <div>
-            <div class="testi-name">Rohan Sharma</div>
-            <div class="testi-role">Podcast Producer · WaveCast</div>
-          </div>
-        </div>
-      </div>
+      @endforeach
+
     </div>
   </div>
 
   <div class="testi-footer">
-    <div class="testi-dots" id="testiDots"><button class="t-dot"></button><button class="t-dot active"></button><button class="t-dot"></button><button class="t-dot"></button></div>
-    <div style="text-align:center;font-size:.85rem;color:rgba(255,255,255,.35);">50,000+ happy users across 120+ countries</div>
+    <div class="testi-dots" id="testiDots">
+      @foreach($testimonials as $index => $item)
+      <button class="t-dot {{ $index === 0 ? 'active' : '' }}"></button>
+      @endforeach
+    </div>
+
+
+
     <div class="testi-arrows">
       <button class="t-arrow" id="testiPrev">←</button>
       <button class="t-arrow" id="testiNext">→</button>
     </div>
   </div>
 </section>
-
-<!-- ══════════════════ FOOTER ══════════════════ -->
-<footer id="footer">
-  <div class="footer-grid">
-    <div>
-      <a class="nav-logo" href="#" style="margin-bottom:16px;display:inline-flex;">
-        <div class="logo-icon">
-          <img src="{{ asset('image/logo.png') }}">
-        </div>
-
-      </a>
-      <p class="footer-desc">The all-in-one communication platform for teams — live chat, voice &amp; video calling, multi-company workspaces, and smart file management.</p>
-      <div class="social-row">
-        <a class="soc-btn" href="#" title="Twitter">𝕏</a>
-        <a class="soc-btn" href="#" title="LinkedIn">in</a>
-        <a class="soc-btn" href="#" title="Instagram">ig</a>
-        <a class="soc-btn" href="#" title="YouTube">▶</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Product</h4>
-      <ul>
-        <li><a href="#">Live Chat</a></li>
-        <li><a href="#">Audio Calling</a></li>
-        <li><a href="#">Video Calling</a></li>
-        <li><a href="#">Multi-Company</a></li>
-        <li><a href="#">Media Library</a></li>
-        <li><a href="#">Pricing</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Press Kit</a></li>
-        <li><a href="#">Status</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Stay in the loop</h4>
-      <p style="color:var(--muted);font-size:.88rem;line-height:1.6;margin-bottom:0;">Get product updates and tips delivered to your inbox.</p>
-      <div class="nl-form">
-        <input type="email" placeholder="your@email.com">
-        <button>Subscribe</button>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 Akshar Plus. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Cookie Policy</a>
-    </div>
-  </div>
-</footer>
-
-<!-- ══════════════════ JS ══════════════════ -->
-<script src="{{ asset('js/script.js') }}"></script>
-
-</script>
-
-
-</body>
-
-</html>
+@include('frontend.layouts.footer')

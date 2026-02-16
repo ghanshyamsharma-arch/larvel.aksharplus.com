@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Edit Service')
+@section('title','Add Page')
 
 @section('content')
 <div class="container-fluid">
@@ -162,7 +162,10 @@ display:none;">
 
                 </div>
 
-
+                <div class="mb-3">
+                    <label>Additional Image (Optional)</label>
+                    <input type="file" name="additional_image" class="form-control">
+                </div>
 
                 {{-- STATUS --}}
 

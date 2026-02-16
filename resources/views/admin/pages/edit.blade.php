@@ -137,8 +137,13 @@
 
     </div>
 
-
-
+    <div class="mb-3">
+        <label>Additional Image (Optional)</label>
+        <input type="file" name="additional_image" class="form-control">
+    </div>
+    @if($page->additional_image)
+    <img src="{{ asset('storage/'.$page->additional_image) }}" width="120">
+    @endif
     {{-- STATUS --}}
 
     <div class="mb-3">

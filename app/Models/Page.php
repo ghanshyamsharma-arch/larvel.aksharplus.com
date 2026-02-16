@@ -17,7 +17,7 @@ class Page extends Model
         'seo_description',
         'seo_keywords',
         'seo_image',
-        'status'
-
+        'status',
+        'additional_image'
     ];
 }

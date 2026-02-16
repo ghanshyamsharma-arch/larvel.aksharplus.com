@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PageController extends Controller
 {
@@ -62,6 +63,11 @@ class PageController extends Controller
 
             $seo_image = $request->file('seo_image')->store('pages', 'public');
         }
+        if ($request->hasFile('additional_image')) {
+            $additionalImage = $request->file('additional_image')->store('pages', 'public');
+        } else {
+            $additionalImage = null;
+        }
 
         Page::create([
 
@@ -79,7 +85,8 @@ class PageController extends Controller
 
             'seo_image' => $seo_image,
 
-            'status' => $request->status
+            'status' => $request->status,
+            'additional_image' => $additionalImage
 
         ]);
 
@@ -109,6 +116,14 @@ class PageController extends Controller
             $seo_image = $request->file('seo_image')->store('pages', 'public');
 
             $page->seo_image = $seo_image;
+        }
+        if ($request->hasFile('additional_image')) {
+
+            if ($page->additional_image) {
+                Storage::disk('public')->delete($page->additional_image);
+            }
+
+            $page->additional_image = $request->file('additional_image')->store('pages', 'public');
         }
 
         $page->update([
