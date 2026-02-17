@@ -7,7 +7,8 @@
 <meta name="keywords" content="terms and conditions, terms of service, Akshar Plus, user agreement, legal">
 <meta name="author" content="Akshar Plus">
 <meta name="robots" content="index, follow">
-
+<meta name="publisher" content="Akshar Plus">
+<meta property="og:site_name" content="Akshar Plus">
 {{-- Open Graph --}}
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ $terms->title }} — Akshar Plus">

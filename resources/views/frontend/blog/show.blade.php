@@ -6,7 +6,8 @@
 <meta name="description" content="{{ $blog->meta_description ?? Str::limit(strip_tags($blog->excerpt ?? $blog->body), 155) }}">
 <meta name="keywords" content="{{ isset($blog->tags_list) && is_array($blog->tags_list) ? implode(', ', $blog->tags_list) : 'Akshar Plus, team communication, blog' }}">
 <meta name="author" content="{{ $blog->author->name ?? 'Akshar Plus' }}">
-
+<meta name="publisher" content="Akshar Plus">
+<meta property="og:site_name" content="Akshar Plus">
 {{-- Open Graph (Facebook, LinkedIn) --}}
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{ $blog->meta_title ?? $blog->title }}">
@@ -954,7 +955,7 @@
 <!-- ════ HERO ════ -->
 <div class="post-hero">
   <div class="hero-bg">
-    <img src="{{ $blog->cover_url }}" alt="{{ $blog->title }}">
+    <img src="{{ $blog->cover_url }}" alt="{{ $blog->title }}" title="{{ $blog->title }}">
   </div>
   <div class="hero-dots"></div>
   <div class="hero-content">

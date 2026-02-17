@@ -9,7 +9,8 @@ Copy
 <meta name="keywords" content="privacy policy, data protection, Akshar Plus, user data, GDPR">
 <meta name="author" content="Akshar Plus">
 <meta name="robots" content="index, follow">
-
+<meta name="publisher" content="Akshar Plus">
+<meta property="og:site_name" content="Akshar Plus">
 {{-- Open Graph --}}
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ $policy->title }} — Akshar Plus">

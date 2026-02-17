@@ -6,7 +6,8 @@
 <meta name="description" content="Replace 4+ tools with one platform. Akshar Plus brings live chat, HD audio/video calling, screen sharing, and smart file management into one beautiful workspace. Built for remote teams.">
 <meta name="keywords" content="team communication, video calling, live chat, remote work, collaboration platform, screen sharing, file management, workspace, Slack alternative, Zoom alternative">
 <meta name="author" content="Akshar Plus">
-
+<meta name="publisher" content="Akshar Plus">
+<meta property="og:site_name" content="Akshar Plus">
 {{-- Open Graph (Facebook, LinkedIn) --}}
 <meta property="og:type" content="website">
 <meta property="og:title" content="Akshar Plus — Team Communication Platform">
@@ -108,6 +109,7 @@
     "description": "All-in-one team communication platform with live chat, video calling, and file management"
   }
 </script>
+
 @endsection
 @include('frontend.layouts.navbar')
 
@@ -283,13 +285,13 @@
         </div>
 
 
-        <h2 class="hero-h1">
+        <h3 class="hero-h1">
           {!! nl2br(e($hero->title)) !!}
           <br>
           <span class="grad-text">
             {{ $hero->highlight_text }}
           </span>
-        </h2>
+        </h3>
         <p class="hero-p">
           {{ $hero->description }}
 
@@ -307,7 +309,7 @@
       </div>
       <div class="hero-visual">
         <div class="chat-mockup">
-          <img src="{{ asset('storage/'.$hero->image) }}">
+          <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('storage/'.$hero->image) }}">
 
         </div>
       </div>
@@ -377,7 +379,7 @@ visible">
 
       <div class="fc-icon 
 {{ $iconClasses[array_rand($iconClasses)] }}">
-        <img src="{{ asset('storage/'.$service->file) }}">
+        <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('storage/'.$service->file) }}">
 
       </div>
 
@@ -405,7 +407,7 @@ visible">
 <section class="calling-section" id="calling">
   <div class="calling-grid">
     <div class="calling-visual reveal visible">
-      <img src="{{ asset('storage/'.$video->image) }}">
+      <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('storage/'.$video->image) }}">
     </div>
 
     <div class="reveal reveal-delay-2 visible">
@@ -427,7 +429,7 @@ visible">
       <div class="workspace-mockup">
         <div class="ws-sidebar">
 
-          <img src="{{ asset('storage/'.$multi->image) }}">
+          <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('storage/'.$multi->image) }}">
         </div>
       </div>
     </div>
@@ -445,7 +447,7 @@ visible">
     <!-- Pinned Messages -->
     <div class="ps-card reveal reveal-delay-1 visible">
       @if($smartMessage->image)
-      <img src="{{ asset('storage/'.$smartMessage->image) }}">
+      <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('storage/'.$smartMessage->image) }}">
       @endif
 
     </div>
@@ -453,7 +455,7 @@ visible">
     <!-- Scheduled Messages -->
     <div class="ps-card reveal reveal-delay-2 visible">
       @if($smartMessage->additional_image)
-      <img src="{{ asset('storage/'.$smartMessage->additional_image) }}">
+      <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('storage/'.$smartMessage->additional_image) }}">
       @endif
     </div>
   </div>
@@ -482,7 +484,7 @@ visible">
 
       @foreach($images as $item)
 
-      <img class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="150">
+      <img alt="Akshar Plus" title="Akshar Plus" class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="150">
 
       @endforeach
     </div>
@@ -515,7 +517,7 @@ visible">
       @foreach($audio as $item)
 
       <div class="audio-item">
-        <div class="audio-icon"><img class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
+        <div class="audio-icon"><img alt="Akshar Plus" title="Akshar Plus" class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
         <div class="audio-info">
           <p>{{$item->title}}</p>
           <span>{{$item->link}}</span>
@@ -546,7 +548,7 @@ visible">
     <div class="files-list">
       @foreach($links as $item)
       <a class="link-item" href="#">
-        <div class="link-favicon"><img class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
+        <div class="link-favicon"><img alt="Akshar Plus" title="Akshar Plus" class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
         <div class="link-info">
           <p>{{$item->title}}</p><span>{{$item->link}}</span>
         </div>
@@ -562,7 +564,7 @@ visible">
     <div class="files-list">
       @foreach($docs as $item)
       <div class="doc-item">
-        <div class="doc-icon" style="background:rgba(37,99,235,.1);"><img class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
+        <div class="doc-icon" style="background:rgba(37,99,235,.1);"><img alt="Akshar Plus" title="Akshar Plus" class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
         <div class="doc-info">
           <p>{{$item->title}}</p><span>{{$item->link}} </span>
         </div>
@@ -610,7 +612,7 @@ visible">
 
         <div class="testi-author">
           @if($item->avatar)
-          <img src="{{ asset('storage/' . $item->avatar) }}"
+          <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('storage/' . $item->avatar) }}"
             class="testi-av"
             style="object-fit:cover;"
             alt="{{ $item->name }}">

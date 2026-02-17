@@ -15,7 +15,8 @@ Blog — Stories for Modern Teams | Akshar Plus
 @section('meta')
 <meta name="description" content="Product updates, remote work guides, productivity tips and team communication insights from Akshar Plus. Learn how to build better remote workplaces.">
 <meta name="keywords" content="team communication, remote work, productivity, Akshar Plus, blog, workplace tips">
-
+<meta name="publisher" content="Akshar Plus">
+<meta property="og:site_name" content="Akshar Plus">
 {{-- Open Graph --}}
 <meta property="og:type" content="website">
 <meta property="og:title" content="Blog — Stories for Modern Teams | Akshar Plus">
@@ -67,7 +68,7 @@ Blog — Stories for Modern Teams | Akshar Plus
         {{-- Big card --}}
         <a href="{{ route('blog.show', $featured->first()->slug) }}" class="feat-big">
           <div class="cover">
-            <img src="{{ $featured->first()->cover_url }}" alt="{{ $featured->first()->title }}">
+            <img src="{{ $featured->first()->cover_url }}" alt="{{ $featured->first()->title }}" title="{{ $featured->first()->title }}">
           </div>
           <div class="overlay">
             @if($featured->first()->category)
@@ -84,7 +85,7 @@ Blog — Stories for Modern Teams | Akshar Plus
           @foreach($featured->skip(1)->take(2) as $fp)
           <a href="{{ route('blog.show', $fp->slug) }}" class="feat-small">
             <div class="cover">
-              <img src="{{ $fp->cover_url }}" alt="{{ $fp->title }}">
+              <img src="{{ $fp->cover_url }}" alt="{{ $fp->title }}" title="{{ $fp->title }}">
             </div>
             <div class="overlay">
               @if($fp->category)<div class="feat-cat">{{ $fp->category }}</div>@endif
@@ -121,7 +122,7 @@ Blog — Stories for Modern Teams | Akshar Plus
 
           {{-- Thumbnail --}}
           <div class="bc-img">
-            <img src="{{ $blog->cover_url }}" alt="{{ $blog->title }}" loading="lazy">
+            <img src="{{ $blog->cover_url }}" alt="{{ $blog->title }}" title="{{ $blog->title }}" loading="lazy">
             @if($blog->category)
             <span class="bc-cat-badge">{{ $blog->category }}</span>
             @endif
@@ -202,7 +203,7 @@ Blog — Stories for Modern Teams | Akshar Plus
         @foreach($recent as $r)
         <a href="{{ route('blog.show',$r->slug) }}" class="recent-item">
           <div class="recent-thumb">
-            <img src="{{ $r->cover_url }}" alt="{{ $r->title }}" loading="lazy">
+            <img src="{{ $r->cover_url }}" alt="{{ $r->title }}" title="{{ $r->title }}" loading="lazy">
           </div>
           <div class="recent-info">
             <h4>{{ Str::limit($r->title, 52) }}</h4>

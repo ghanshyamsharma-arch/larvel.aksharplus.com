@@ -4,7 +4,7 @@
         <div>
             <a class="nav-logo" href="#" style="margin-bottom:16px;display:inline-flex;">
                 <div class="logo-icon">
-                    <img src="{{ asset('image/logo.png') }}">
+                    <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('image/logo.png') }}">
                 </div>
 
             </a>
