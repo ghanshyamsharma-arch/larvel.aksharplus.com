@@ -12,7 +12,7 @@
 <meta property="og:title" content="Akshar Plus — Team Communication Platform">
 <meta property="og:description" content="Replace 4+ tools with one platform. Live chat, HD audio/video calling, screen sharing, and smart file management for remote teams.">
 <meta property="og:url" content="{{ url('/') }}">
-<meta property="og:image" content="{{ asset('image/og-home.png') }}">
+<meta property="og:image" content="{{ asset('image/logo.png') }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Akshar Plus">
@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Akshar Plus — Team Communication Platform">
 <meta name="twitter:description" content="Replace 4+ tools with one platform. Live chat, HD calls, screen sharing, and smart file management.">
-<meta name="twitter:image" content="{{ asset('image/og-home.png') }}">
+<meta name="twitter:image" content="{{ asset('image/logo.png') }}">
 <meta name="twitter:site" content="@aksharplus">
 <meta name="twitter:creator" content="@aksharplus">
 
@@ -111,7 +111,156 @@
 @endsection
 @include('frontend.layouts.navbar')
 
+{{--
+  Apni home.blade.php mein empty div ki jagah paste karo
+  Nav ke neeche, hero section ke upar
+--}}
+<div class="announce-bar" id="announceBar">
+  <div class="announce-inner">
 
+    {{-- Left: Fixed dot --}}
+    <span class="announce-dot"></span>
+
+    {{-- Center: Marquee scrolling H1 --}}
+    <div class="announce-marquee-wrap">
+      <div class="announce-marquee">
+        <h1 class="announce-h1">
+          Akshar Plus — The All-in-One Team Communication Platform &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp;
+          Live Chat · HD Video Calling · Screen Sharing · Smart File Management · Multi-Company Workspaces &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp;
+          Akshar Plus — The All-in-One Team Communication Platform &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp;
+          Live Chat · HD Video Calling · Screen Sharing · Smart File Management · Multi-Company Workspaces &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp;
+        </h1>
+      </div>
+    </div>
+
+    {{-- Right: Fixed close --}}
+    <button class="announce-close"
+      onclick="document.getElementById('announceBar').style.display='none'"
+      title="Dismiss">✕</button>
+
+  </div>
+</div>
+
+<style>
+  .announce-bar {
+    width: 100%;
+    background: linear-gradient(90deg,
+        rgba(233, 30, 140, .07) 0%,
+        rgba(124, 58, 237, .1) 50%,
+        rgba(37, 99, 235, .07) 100%);
+    border-bottom: 1px solid rgba(124, 58, 237, .14);
+    padding: 10px 16px;
+    overflow: hidden;
+    margin-top: 68px;
+  }
+
+  .hero {
+    margin-top: 0;
+  }
+
+  .announce-inner {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Fixed dot */
+  .announce-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e91e8c;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 0 rgba(233, 30, 140, .5);
+    animation: pulse-dot 2s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0% {
+      box-shadow: 0 0 0 0 rgba(233, 30, 140, .5);
+    }
+
+    70% {
+      box-shadow: 0 0 0 7px rgba(233, 30, 140, 0);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(233, 30, 140, 0);
+    }
+  }
+
+  /* Marquee container */
+  .announce-marquee-wrap {
+    flex: 1;
+    overflow: hidden;
+    /* Fade edges */
+    mask-image: linear-gradient(90deg,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg,
+        transparent 0%,
+        black 8%,
+        black 92%,
+        transparent 100%);
+  }
+
+  .announce-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 28s linear infinite;
+  }
+
+  .announce-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* H1 styled as announcement text */
+  .announce-h1 {
+    font-size: .85rem;
+    font-weight: 600;
+    color: #2a2545;
+    margin: 0;
+    white-space: nowrap;
+    letter-spacing: -.01em;
+    line-height: 1;
+  }
+
+  /* Fixed close */
+  .announce-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    font-size: .78rem;
+    color: #a09abc;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+    transition: color .2s;
+  }
+
+  .announce-close:hover {
+    color: #2a2545;
+  }
+
+  @media (max-width: 560px) {
+    .announce-h1 {
+      font-size: .78rem;
+    }
+  }
+</style>
 <!-- ══════════════════ HERO BANNER (SLIDER) ══════════════════ -->
 <section class="hero" id="hero">
   <div class="hero-bg">
@@ -134,13 +283,13 @@
         </div>
 
 
-        <h1 class="hero-h1">
+        <h2 class="hero-h1">
           {!! nl2br(e($hero->title)) !!}
           <br>
           <span class="grad-text">
             {{ $hero->highlight_text }}
           </span>
-        </h1>
+        </h2>
         <p class="hero-p">
           {{ $hero->description }}
 

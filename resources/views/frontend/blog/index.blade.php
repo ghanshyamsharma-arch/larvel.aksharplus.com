@@ -21,14 +21,14 @@ Blog — Stories for Modern Teams | Akshar Plus
 <meta property="og:title" content="Blog — Stories for Modern Teams | Akshar Plus">
 <meta property="og:description" content="Product updates, remote work guides, productivity tips and team communication insights.">
 <meta property="og:url" content="{{ url()->current() }}">
-<meta property="og:image" content="{{ asset('image/blog-og.png') }}">
+<meta property="og:image" content="{{ asset('image/logo.png') }}">
 <meta property="og:site_name" content="Akshar Plus">
 
 {{-- Twitter Card --}}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Blog — Stories for Modern Teams">
 <meta name="twitter:description" content="Product updates, remote work guides, productivity tips and team communication insights.">
-<meta name="twitter:image" content="{{ asset('image/blog-og.png') }}">
+<meta name="twitter:image" content="{{ asset('image/logo.png') }}">
 <meta name="twitter:site" content="@aksharplus">
 
 {{-- Canonical --}}

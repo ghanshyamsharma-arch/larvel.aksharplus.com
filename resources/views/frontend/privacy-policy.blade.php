@@ -15,7 +15,7 @@ Copy
 <meta property="og:title" content="{{ $policy->title }} — Akshar Plus">
 <meta property="og:description" content="{{ Str::limit(strip_tags($policy->description), 155) }}">
 <meta property="og:url" content="{{ url()->current() }}">
-<meta property="og:image" content="{{ asset('image/og-home.png') }}">
+<meta property="og:image" content="{{ asset('image/logo.png') }}">
 <meta property="og:site_name" content="Akshar Plus">
 
 {{-- Twitter Card --}}
