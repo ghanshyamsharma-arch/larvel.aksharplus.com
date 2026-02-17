@@ -61,28 +61,28 @@
 
     <!-- ══════════════════ NAVBAR ══════════════════ -->
     <nav id="navbar" class="">
-        <a class="nav-logo" href="{{ route('home') }}">
+        <a class="nav-logo" href="{{ route('home') }}" title="Home">
             <div class="logo-icon">
                 <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('image/logo.png') }}">
             </div>
         </a>
 
         <div class="nav-links">
-            <a href="{{ route('home') }}">Home</a>
-            <a href="{{ route('home') }}#features">Features</a>
-            <a href="{{ route('home') }}#calling">Calling</a>
-            <a href="{{ route('home') }}#multicompany">Multi-Company</a>
-            <a href="{{ route('home') }}#files">Media Library</a>
-            <a href="{{ route('home') }}#testimonials">Reviews</a>
+            <a href="{{ route('home') }}" title="Home">Home</a>
+            <a href="{{ route('home') }}#features" title="Features">Features</a>
+            <a href="{{ route('home') }}#calling" title="Calling">Calling</a>
+            <a href="{{ route('home') }}#multicompany" title="Multi-Company">Multi-Company</a>
+            <a href="{{ route('home') }}#files" title="Media Library">Media Library</a>
+            <a href="{{ route('home') }}#testimonials" title="Reviews">Reviews</a>
 
             <a href="{{ route('blog.index') }}"
-                class="{{ request()->routeIs('blog.*') ? 'active' : '' }}">
+                class="{{ request()->routeIs('blog.*') ? 'active' : '' }}" title="Blog">
                 Blog
             </a>
         </div>
 
         <div class="nav-actions">
-            <a href="https://aksharplus.com/" class="btn-ghost">Sign In</a>
+            <a href="https://aksharplus.com/" class="btn-ghost" title="Sign In">Sign In</a>
 
             <button class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
@@ -91,14 +91,14 @@
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
-        <a href="{{ route('home') }}">Home</a>
-        <a href="{{ route('home') }}#features">Features</a>
-        <a href="{{ route('home') }}#calling">Calling</a>
-        <a href="{{ route('home') }}#multicompany">Multi-Company</a>
-        <a href="{{ route('home') }}#files">Media Library</a>
-        <a href="{{ route('home') }}#testimonials">Reviews</a>
+        <a href="{{ route('home') }}" title="Home">Home</a>
+        <a href="{{ route('home') }}#features" title="Features">Features</a>
+        <a href="{{ route('home') }}#calling" title="Calling">Calling</a>
+        <a href="{{ route('home') }}#multicompany" title="Multi-Company">Multi-Company</a>
+        <a href="{{ route('home') }}#files" title="Media Library">Media Library</a>
+        <a href="{{ route('home') }}#testimonials" title="Reviews">Reviews</a>
         <a href="{{ route('blog.index') }}"
-            class="{{ request()->routeIs('blog.*') ? 'active' : '' }}">
+            class="{{ request()->routeIs('blog.*') ? 'active' : '' }}" title="Blog">
             Blog
         </a>
     </div>

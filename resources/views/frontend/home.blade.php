@@ -298,11 +298,11 @@
         </p>
         <div class="hero-btns">
 
-          <a href="{{ $hero->button_link }}" class="btn-cta">
+          <a title="Our demos" href="{{ (!empty($hero->button_link) && $hero->button_link != '#')  ?$hero->button_link: 'https://aksharplus.com/' }}" class="btn-cta">
             {{ (!empty($hero->button_text) && $hero->button_text != '#') ? $hero->button_text : 'Get demo' }} →
           </a>
 
-          <a href="#features" class="btn-ghost">
+          <a href="{{ route('home') }}#features" class="btn-ghost" title="Feature section">
             Explore Features
           </a>
         </div>
@@ -547,7 +547,7 @@ visible">
   <div class="files-panel" id="tab-links">
     <div class="files-list">
       @foreach($links as $item)
-      <a class="link-item" href="#">
+      <a class="link-item" href="#" title="Akshar Plus">
         <div class="link-favicon"><img alt="Akshar Plus" title="Akshar Plus" class="img-thumb" src="{{ asset('storage/'.$item->file) }}" width="20"></div>
         <div class="link-info">
           <p>{{$item->title}}</p><span>{{$item->link}}</span>

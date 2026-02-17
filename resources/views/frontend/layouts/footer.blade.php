@@ -2,7 +2,7 @@
 <footer id="footer">
     <div class="footer-grid">
         <div>
-            <a class="nav-logo" href="#" style="margin-bottom:16px;display:inline-flex;">
+            <a class="nav-logo" href="#" style="margin-bottom:16px;display:inline-flex;" title="Akshar Plus">
                 <div class="logo-icon">
                     <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('image/logo.png') }}">
                 </div>
@@ -32,20 +32,20 @@
         <div class="footer-col">
             <h4>Product</h4>
             <ul>
-                <li><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="{{ route('home') }}#calling">Audio Calling</a></li>
-                <li><a href="{{ route('home') }}#calling">Video Calling</a></li>
-                <li><a href="{{ route('home') }}#multicompany">Multi-Company</a></li>
-                <li><a href="{{ route('home') }}#file">Media Library</a></li>
+                <li><a href="{{ route('home') }}" title="Home">Home</a></li>
+                <li><a href="{{ route('home') }}#calling" title="Audio Calling">Audio Calling</a></li>
+                <li><a href="{{ route('home') }}#calling" title="Video Calling">Video Calling</a></li>
+                <li><a href="{{ route('home') }}#multicompany" title="Multi-Company">Multi-Company</a></li>
+                <li><a href="{{ route('home') }}#file" title="Media Library">Media Library</a></li>
             </ul>
         </div>
         <div class="footer-col">
             <h4>Company</h4>
             <ul>
-                <li><a href="https://www.shakuniya.in/aboutus_files/about-us.php">About Us</a></li>
-                <li><a href="https://www.shakuniya.in/aboutus_files/caareer.php">Careers</a></li>
-                <li><a href="{{ route('blog.index') }}">Blog</a></li>
-                <li><a href="https://www.shakuniya.in/aboutus_files/contact-us.php">Contact</a></li>
+                <li><a href="https://www.shakuniya.in/aboutus_files/about-us.php" title="About Us">About Us</a></li>
+                <li><a href="https://www.shakuniya.in/aboutus_files/caareer.php" title="Careers">Careers</a></li>
+                <li><a href="{{ route('blog.index') }}" title="Blog">Blog</a></li>
+                <li><a href="https://www.shakuniya.in/aboutus_files/contact-us.php" title="Contact">Contact</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -106,9 +106,9 @@
     <div class="footer-bottom">
         <p>© 2025 Akshar Plus. All rights reserved.</p>
         <div class="footer-links">
-            <a href="{{ route('privacy.policy') }}">Privacy Policy</a>
-            <a href="{{ route('terms.conditions') }}">Terms of Service</a>
-            <!-- <a href="#">Cookie Policy</a> -->
+            <a href="{{ route('privacy.policy') }}" title="Privacy Policy">Privacy Policy</a>
+            <a href="{{ route('terms.conditions') }}" title="Terms of Service">Terms of Service</a>
+
         </div>
     </div>
 </footer>

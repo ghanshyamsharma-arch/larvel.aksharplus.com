@@ -61,12 +61,12 @@ Blog — Stories for Modern Teams | Akshar Plus
       @if($featured->count() > 0 && !request()->hasAny(['search','category','tag']))
       <div class="section-label">
         <h2>⭐ Featured Stories</h2>
-        <a href="{{ route('blog.index') }}">All posts →</a>
+        <a href="{{ route('blog.index') }}" title="All posts">All posts →</a>
       </div>
       <div class="featured-grid">
 
         {{-- Big card --}}
-        <a href="{{ route('blog.show', $featured->first()->slug) }}" class="feat-big">
+        <a href="{{ route('blog.show', $featured->first()->slug) }}" class="feat-big" title="{{ $featured->first()->title }}">
           <div class="cover">
             <img src="{{ $featured->first()->cover_url }}" alt="{{ $featured->first()->title }}" title="{{ $featured->first()->title }}">
           </div>
@@ -83,7 +83,7 @@ Blog — Stories for Modern Teams | Akshar Plus
         {{-- Two small cards --}}
         <div class="feat-col">
           @foreach($featured->skip(1)->take(2) as $fp)
-          <a href="{{ route('blog.show', $fp->slug) }}" class="feat-small">
+          <a href="{{ route('blog.show', $fp->slug) }}" class="feat-small" title="{{ $fp->title }}">
             <div class="cover">
               <img src="{{ $fp->cover_url }}" alt="{{ $fp->title }}" title="{{ $fp->title }}">
             </div>
@@ -105,7 +105,7 @@ Blog — Stories for Modern Teams | Akshar Plus
         @if(request('search'))<span class="filter-chip">🔍 "{{ request('search') }}"</span>@endif
         @if(request('category'))<span class="filter-chip">🏷 {{ request('category') }}</span>@endif
         @if(request('tag'))<span class="filter-chip"># {{ request('tag') }}</span>@endif
-        <a href="{{ route('blog.index') }}" class="filter-clear">✕ Clear all</a>
+        <a href="{{ route('blog.index') }}" class="filter-clear" title="Clear all">✕ Clear all</a>
       </div>
       @endif
 
@@ -118,7 +118,7 @@ Blog — Stories for Modern Teams | Akshar Plus
       {{-- BLOG CARDS --}}
       <div class="blog-list">
         @forelse($blogs as $blog)
-        <a href="{{ route('blog.show', $blog->slug) }}" class="blog-card">
+        <a href="{{ route('blog.show', $blog->slug) }}" class="blog-card" title="{{ $blog->title }}">
 
           {{-- Thumbnail --}}
           <div class="bc-img">
@@ -168,7 +168,7 @@ Blog — Stories for Modern Teams | Akshar Plus
           <div class="icon">📭</div>
           <h3>No articles found</h3>
           <p>Try a different search or browse all categories.</p>
-          <a href="{{ route('blog.index') }}">← View all posts</a>
+          <a href="{{ route('blog.index') }}" title="View all posts">← View all posts</a>
         </div>
         @endforelse
       </div>
@@ -188,9 +188,9 @@ Blog — Stories for Modern Teams | Akshar Plus
       <div class="scard">
         <div class="scard-title">🏷 Categories</div>
         <div class="cat-pills">
-          <a href="{{ route('blog.index') }}" class="cat-pill {{ !request('category') ? 'on':'' }}">All</a>
+          <a href="{{ route('blog.index') }}" title="All" class="cat-pill {{ !request('category') ? 'on':'' }}">All</a>
           @foreach($categories as $cat)
-          <a href="{{ route('blog.index',['category'=>$cat]) }}" class="cat-pill {{ request('category')==$cat?'on':'' }}">{{ $cat }}</a>
+          <a href="{{ route('blog.index',['category'=>$cat]) }}" title="{{ $cat }}" class="cat-pill {{ request('category')==$cat?'on':'' }}">{{ $cat }}</a>
           @endforeach
         </div>
       </div>
@@ -201,7 +201,7 @@ Blog — Stories for Modern Teams | Akshar Plus
       <div class="scard">
         <div class="scard-title">🕐 Recent Posts</div>
         @foreach($recent as $r)
-        <a href="{{ route('blog.show',$r->slug) }}" class="recent-item">
+        <a href="{{ route('blog.show',$r->slug) }}" class="recent-item" title="{{ $r->title }}">
           <div class="recent-thumb">
             <img src="{{ $r->cover_url }}" alt="{{ $r->title }}" title="{{ $r->title }}" loading="lazy">
           </div>
@@ -223,7 +223,7 @@ Blog — Stories for Modern Teams | Akshar Plus
         <div class="scard-title">🔖 Popular Tags</div>
         <div class="tag-cloud">
           @foreach($allTags as $tag => $count)
-          <a href="{{ route('blog.index',['tag'=>$tag]) }}">#{{ $tag }} <sup style="opacity:.5;">{{ $count }}</sup></a>
+          <a href="{{ route('blog.index',['tag'=>$tag]) }}" title="Tags">#{{ $tag }} <sup style="opacity:.5;">{{ $count }}</sup></a>
           @endforeach
         </div>
       </div>

@@ -921,7 +921,7 @@
 
 <!-- ════ NAV ════ -->
 <nav class="nav">
-  <a href="{{ route('home') }}" class="nav-logo">
+  <a href="{{ route('home') }}" class="nav-logo" title="Logo">
     <svg viewBox="0 0 100 100" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="ng1" x1="0" y1="0" x2="1" y2="1">
@@ -945,11 +945,11 @@
     Akshar <span>Plus</span>
   </a>
   <div class="nav-links">
-    <a href="{{ route('home') }}">Home</a>
-    <a href="{{ route('blog.index') }}" class="active">Blog</a>
-    <a href="{{ route('home') }}#features">Features</a>
+    <a href="{{ route('home') }}" title="Home">Home</a>
+    <a href="{{ route('blog.index') }}" class="active" title="Blog">Blog</a>
+    <a href="{{ route('home') }}#features" title="Features">Features</a>
   </div>
-  <a href="#" class="nav-cta">Get Started</a>
+  <a href="#" class="nav-cta" title="Get Started">Get Started</a>
 </nav>
 
 <!-- ════ HERO ════ -->
@@ -959,7 +959,7 @@
   </div>
   <div class="hero-dots"></div>
   <div class="hero-content">
-    <a href="{{ route('blog.index') }}" class="hero-back">← Back to Blog</a>
+    <a href="{{ route('blog.index') }}" class="hero-back" title="Back to Blog">← Back to Blog</a>
     @if($blog->category)
     <div><span class="hero-cat">{{ $blog->category }}</span></div>
     @endif
@@ -1003,7 +1003,7 @@
           <div class="art-tags">
             <label>Tags:</label>
             @foreach($blog->tags_list as $tag)
-            <a href="{{ route('blog.index',['tag'=>$tag]) }}" class="art-tag">#{{ $tag }}</a>
+            <a href="{{ route('blog.index',['tag'=>$tag]) }}" class="art-tag" title="{{ $tag }}">#{{ $tag }}</a>
             @endforeach
           </div>
           @endif
@@ -1036,9 +1036,9 @@
         <h2>📚 Related Articles</h2>
         <div class="related-grid">
           @foreach($related as $rel)
-          <a href="{{ route('blog.show',$rel->slug) }}" class="rel-card">
+          <a href="{{ route('blog.show',$rel->slug) }}" class="rel-card" title="{{ $rel->title }}">
             <div class="rel-cover">
-              <img src="{{ $rel->cover_url }}" alt="{{ $rel->title }}" loading="lazy">
+              <img src="{{ $rel->cover_url }}" alt="{{ $rel->title }}" title="{{ $rel->title }}" loading="lazy">
             </div>
             <div class="rel-body">
               @if($rel->category)<div class="rel-cat">{{ $rel->category }}</div>@endif
@@ -1062,7 +1062,7 @@
           <div class="scard-title">📋 Table of Contents</div>
           <ul class="toc-list">
             @foreach($hs as $i=>$h)
-            <li><a href="#h-{{$i}}" class="toc-link">{{ strip_tags($h) }}</a></li>
+            <li><a href="#h-{{$i}}" title="Table of Contents" class="toc-link">{{ strip_tags($h) }}</a></li>
             @endforeach
           </ul>
         </div>
@@ -1075,7 +1075,7 @@
           <div class="info-row"><span class="info-label">Reading Time</span><span class="info-val">{{ $blog->reading_time }}</span></div>
           <div class="info-row"><span class="info-label">Views</span><span class="info-val">{{ number_format($blog->views) }}</span></div>
           @if($blog->category)
-          <div class="info-row"><span class="info-label">Category</span><a href="{{ route('blog.index',['category'=>$blog->category]) }}" class="info-cat">{{ $blog->category }}</a></div>
+          <div class="info-row"><span class="info-label">Category</span><a href="{{ route('blog.index',['category'=>$blog->category]) }}" class="info-cat" title="{{ $blog->category }}">{{ $blog->category }}</a></div>
           @endif
         </div>
 
@@ -1084,8 +1084,8 @@
         <div class="scard">
           <div class="scard-title">🔗 More Like This</div>
           @foreach($related as $r)
-          <a href="{{ route('blog.show',$r->slug) }}" class="sr-item">
-            <div class="sr-thumb"><img src="{{ $r->cover_url }}" alt="{{ $r->title }}" loading="lazy"></div>
+          <a href="{{ route('blog.show',$r->slug) }}" class="sr-item" title="{{ $r->title }} ">
+            <div class="sr-thumb"><img src="{{ $r->cover_url }}" alt="{{ $r->title }}" title="{{ $r->title }} " loading="lazy"></div>
             <div class="sr-info">
               <h4>{{ Str::limit($r->title,50) }}</h4>
               <span>{{ $r->reading_time }}</span>
@@ -1098,7 +1098,7 @@
 
 
         {{-- Back link --}}
-        <a href="{{ route('blog.index') }}" class="back-link">← Back to All Posts</a>
+        <a href="{{ route('blog.index') }}" class="back-link" title="Back to All Posts">← Back to All Posts</a>
 
     </aside>
   </div>
