@@ -162,3 +162,54 @@ const io = new IntersectionObserver(
     { threshold: 0.1 },
 );
 document.querySelectorAll(".reveal").forEach((r) => io.observe(r));
+
+// FUNCTION: scroll and clean URL
+function scrollToSection(sectionId, updateUrl = true) {
+    var section = document.getElementById(sectionId);
+
+    if (section) {
+        section.scrollIntoView({
+            behavior: "smooth",
+        });
+
+        if (updateUrl) {
+            // clean URL without #
+            var newUrl = window.location.origin + "/";
+            console.log(newUrl);
+            history.pushState(null, null, newUrl);
+        }
+    }
+}
+
+// ON PAGE LOAD
+window.addEventListener("load", function () {
+    if (window.location.hash) {
+        var sectionId = window.location.hash.substring(1);
+        scrollToSection(sectionId, true);
+    }
+});
+
+// ON CLICK
+document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    console.log(link);
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        var sectionId = this.getAttribute("href").substring(1);
+
+        scrollToSection(sectionId, true);
+    });
+});
+
+document.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        var href = this.getAttribute("href");
+
+        if (href && href.includes("#")) {
+            console.log("Hash found:", href);
+            setTimeout(function () {
+                history.pushState(null, null, window.location.origin);
+            }, 100);
+        }
+    });
+});
