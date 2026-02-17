@@ -299,7 +299,7 @@
         <div class="hero-btns">
 
           <a href="{{ $hero->button_link }}" class="btn-cta">
-            {{ $hero->button_text }} →
+            {{ (!empty($hero->button_text) && $hero->button_text != '#') ? $hero->button_text : 'Get demo' }} →
           </a>
 
           <a href="#features" class="btn-ghost">
