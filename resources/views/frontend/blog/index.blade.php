@@ -1,3 +1,39 @@
+{{-- resources/views/frontend/blog/index.blade.php ke TOP pe paste karo, <!DOCTYPE> se pehle --}}
+
+@section('meta_title')
+@if(request('search'))
+Search: "{{ request('search') }}" — Akshar Plus Blog
+@elseif(request('category'))
+{{ request('category') }} Articles — Akshar Plus Blog
+@elseif(request('tag'))
+#{{ request('tag') }} — Akshar Plus Blog
+@else
+Blog — Stories for Modern Teams | Akshar Plus
+@endif
+@endsection
+
+@section('meta')
+<meta name="description" content="Product updates, remote work guides, productivity tips and team communication insights from Akshar Plus. Learn how to build better remote workplaces.">
+<meta name="keywords" content="team communication, remote work, productivity, Akshar Plus, blog, workplace tips">
+
+{{-- Open Graph --}}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog — Stories for Modern Teams | Akshar Plus">
+<meta property="og:description" content="Product updates, remote work guides, productivity tips and team communication insights.">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:image" content="{{ asset('image/blog-og.png') }}">
+<meta property="og:site_name" content="Akshar Plus">
+
+{{-- Twitter Card --}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — Stories for Modern Teams">
+<meta name="twitter:description" content="Product updates, remote work guides, productivity tips and team communication insights.">
+<meta name="twitter:image" content="{{ asset('image/blog-og.png') }}">
+<meta name="twitter:site" content="@aksharplus">
+
+{{-- Canonical --}}
+<link rel="canonical" href="{{ route('blog.index') }}">
+@endsection
 @include('frontend.layouts.navbar')
 
 <!-- ════ HERO ════ -->

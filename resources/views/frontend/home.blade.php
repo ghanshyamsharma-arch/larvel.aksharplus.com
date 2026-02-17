@@ -1,3 +1,114 @@
+{{-- resources/views/frontend/home.blade.php ke TOP pe paste karo --}}
+
+@section('meta_title', 'Akshar Plus — Live Chat, Audio & Video Calling Platform')
+
+@section('meta')
+<meta name="description" content="Replace 4+ tools with one platform. Akshar Plus brings live chat, HD audio/video calling, screen sharing, and smart file management into one beautiful workspace. Built for remote teams.">
+<meta name="keywords" content="team communication, video calling, live chat, remote work, collaboration platform, screen sharing, file management, workspace, Slack alternative, Zoom alternative">
+<meta name="author" content="Akshar Plus">
+
+{{-- Open Graph (Facebook, LinkedIn) --}}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Akshar Plus — Team Communication Platform">
+<meta property="og:description" content="Replace 4+ tools with one platform. Live chat, HD audio/video calling, screen sharing, and smart file management for remote teams.">
+<meta property="og:url" content="{{ url('/') }}">
+<meta property="og:image" content="{{ asset('image/og-home.png') }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Akshar Plus">
+<meta property="og:locale" content="en_US">
+
+{{-- Twitter Card --}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Akshar Plus — Team Communication Platform">
+<meta name="twitter:description" content="Replace 4+ tools with one platform. Live chat, HD calls, screen sharing, and smart file management.">
+<meta name="twitter:image" content="{{ asset('image/og-home.png') }}">
+<meta name="twitter:site" content="@aksharplus">
+<meta name="twitter:creator" content="@aksharplus">
+
+{{-- Canonical URL --}}
+<link rel="canonical" href="{{ url('/') }}">
+
+{{-- Additional SEO --}}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="google" content="notranslate">
+
+{{-- Geo Tags --}}
+<meta name="geo.region" content="IN">
+<meta name="geo.placename" content="India">
+
+{{-- Mobile --}}
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Akshar Plus">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+{{-- JSON-LD Schema - Organization --}}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Akshar Plus",
+    "url": "{{ url('/') }}",
+    "logo": "{{ asset('image/logo.png') }}",
+    "description": "Team communication platform with live chat, video calling, and file management",
+    "sameAs": [
+      "https://twitter.com/aksharplus",
+      "https://linkedin.com/company/aksharplus",
+      "https://instagram.com/aksharplus"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Support",
+      "email": "support@aksharplus.com"
+    }
+  }
+</script>
+
+{{-- JSON-LD Schema - WebSite with Search --}}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Akshar Plus",
+    "url": "{{ url('/') }}",
+    "description": "Team communication platform for remote teams",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "{{ url('/blog') }}?search={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+</script>
+
+{{-- JSON-LD Schema - SoftwareApplication --}}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Akshar Plus",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Windows, MacOS, Linux, iOS, Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "1250",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "description": "All-in-one team communication platform with live chat, video calling, and file management"
+  }
+</script>
+@endsection
 @include('frontend.layouts.navbar')
 
 
