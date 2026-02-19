@@ -391,7 +391,7 @@ visible">
 
       <p>
 
-        {{ $service->description }}
+        {!! $service->description !!}
 
       </p>
 
