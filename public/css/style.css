@@ -2508,6 +2508,7 @@ img {
 
 }
 
-.calling-grid li {
+.calling-grid li,
+.multicomp-grid li {
     align-items: start !important;
 }
