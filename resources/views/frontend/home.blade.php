@@ -465,9 +465,8 @@ visible">
 <!-- ══════════════════ FILES MEDIA SECTION ══════════════════ -->
 <section class="files-section" id="files">
   <div class="files-intro reveal visible">
-    <div class="section-label"><span class="dot" style="background:var(--teal)"></span> Shared Media</div>
-    <h2 class="section-title">All Your Files,<br><span class="grad-text">Auto-Organised</span></h2>
-    <p class="section-sub" style="margin:0 auto;">Every file shared in a channel is automatically sorted by type. Find any image, video, audio clip, link, or document instantly — no searching through old messages.</p>
+    <div class="section-label"><span class="dot" style="background:var(--teal)"></span> {{$shared->title}}</div>
+    {!!$shared->description!!}
   </div>
 
   <div class="files-tabs reveal visible">
