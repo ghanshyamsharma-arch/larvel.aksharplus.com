@@ -2507,3 +2507,7 @@ img {
     }
 
 }
+
+.calling-grid li {
+    align-items: start !important;
+}
