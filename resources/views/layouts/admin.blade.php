@@ -844,24 +844,18 @@
         <span class="icon">🚰</span> Manage Social Links
       </a>
     </div>
+    <a href="{{ route('admin.contacts.index') }}"
+      class="nav-item {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
+
+      <span class="icon">📞</span> Manage Contacts
+
+    </a>
     <a href="{{ route('admin.announcements.index') }}"
       class="nav-item {{ request()->routeIs('admin.announcements.*') ? 'active' : '' }}">
 
       <span class="icon">📢</span> Manage Announcements
 
     </a>
-    <li class="nav-item">
-
-      <a href="{{ route('admin.announcements.index') }}"
-        class="nav-link">
-
-        <i class="bi bi-megaphone"></i>
-
-        <span>Announcements</span>
-
-      </a>
-
-    </li>
 
 
 
