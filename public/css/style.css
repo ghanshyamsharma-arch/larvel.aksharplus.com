@@ -444,15 +444,16 @@ nav.scrolled {
     display: flex;
     height: calc(100vh - 68px);
     min-height: 600px;
-    width: 300%;
+    width: 100%;
     transition: transform .9s cubic-bezier(.77, 0, .175, 1);
     position: relative;
     z-index: 2;
 }
 
 .hero-slide {
-    flex: 0 0 calc(100%/3);
+
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 25px;
     position: relative;
@@ -530,6 +531,7 @@ nav.scrolled {
     justify-content: center;
     align-items: center;
     padding: 40px 0;
+    max-width: 50%;
     position: relative;
 }
 
@@ -538,7 +540,7 @@ nav.scrolled {
     background: none;
     border-radius: 24px;
     /* box-shadow: var(--shadow-xl); */
-    width: min(751px, 18%);
+    /* width: min(751px, 18%); */
     overflow: hidden;
     /* border: 1px solid var(--border); */
     animation: floatUp 6s ease-in-out infinite;
