@@ -1,23 +1,21 @@
 {{-- resources/views/frontend/home.blade.php ke TOP pe paste karo --}}
 
-@section('meta_title', 'Akshar Plus — Live Chat, Audio & Video Calling Platform')
+@section('meta_title', 'Best Online Meeting Platform for Business | Akshar Plus')
 
 @section('meta')
-<meta name="description" content="Replace 4+ tools with one platform. Akshar Plus brings live chat, HD audio/video calling, screen sharing, and smart file management into one beautiful workspace. Built for remote teams.">
+<meta name="description" content="Akshar Plus is the best online meeting platform for business. Host secure video meetings, webinars, chat, file sharing, and manage workspaces in one place.">
 <meta name="keywords" content="team communication, video calling, live chat, remote work, collaboration platform, screen sharing, file management, workspace, Slack alternative, Zoom alternative">
 <meta name="author" content="Akshar Plus">
 <meta name="publisher" content="Akshar Plus">
 <meta property="og:site_name" content="Akshar Plus">
 {{-- Open Graph (Facebook, LinkedIn) --}}
-<meta property="og:type" content="website">
-<meta property="og:title" content="Akshar Plus — Team Communication Platform">
-<meta property="og:description" content="Replace 4+ tools with one platform. Live chat, HD audio/video calling, screen sharing, and smart file management for remote teams.">
-<meta property="og:url" content="{{ url('/') }}">
-<meta property="og:image" content="{{ asset('image/logo.png') }}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="Akshar Plus">
-<meta property="og:locale" content="en_US">
+<meta property="og:title" content="best online meeting platform for business | akshar plus" />
+<meta property="og:type" content="akshar plus" />
+<meta property="og:url" content="https://me.aksharplus.com/" />
+<meta property="og:image" content="https://me.aksharplus.com/image/logo.png" />
+
+<link rel="alternate" href="https://me.aksharplus.com/" hreflang="en-us" />
+<link rel="alternate" href="https://me.aksharplus.com/" hreflang="en-in" />
 
 {{-- Twitter Card --}}
 <meta name="twitter:card" content="summary_large_image">
@@ -50,65 +48,54 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Akshar Plus",
-    "url": "{{ url('/') }}",
-    "logo": "{{ asset('image/logo.png') }}",
-    "description": "Team communication platform with live chat, video calling, and file management",
-    "sameAs": [
-      "https://twitter.com/aksharplus",
-      "https://linkedin.com/company/aksharplus",
-      "https://instagram.com/aksharplus"
-    ],
+    "name": "AksharPlus",
+    "url": "https://me.aksharplus.com/",
+    "logo": "https://me.aksharplus.com/image/logo.png",
     "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Support",
-      "email": "support@aksharplus.com"
+      "sameAs": [
+        "https://instagram.com/aksharplus",
+        "https://linkedin.com/company/aksharplus",
+        "https://x.com/aksharplus"
+        "@type": "ContactPoint",
+        "telephone": "81908 38230",
+        "contactType": "technical support",
+        "areaServed": ["US", "IN"],
+        "availableLanguage": "en"
+      }
     }
-  }
 </script>
 
-{{-- JSON-LD Schema - WebSite with Search --}}
 <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
+    "@context": "https://schema.org/",
     "@type": "WebSite",
-    "name": "Akshar Plus",
-    "url": "{{ url('/') }}",
-    "description": "Team communication platform for remote teams",
+    "name": "AksharPlus",
+    "url": "https://me.aksharplus.com/",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "{{ url('/blog') }}?search={search_term_string}"
-      },
+      "target": "https://me.aksharplus.com/{search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
 </script>
 
-{{-- JSON-LD Schema - SoftwareApplication --}}
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Akshar Plus",
+    "name": "AksharPlus",
+    "url": "https://me.aksharplus.com/",
     "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web, Windows, MacOS, Linux, iOS, Android",
+    "operatingSystem": "Web",
+    "description": "AksharPlus is a digital platform providing online tools and services.",
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "USD"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1250",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "description": "All-in-one team communication platform with live chat, video calling, and file management"
+      "priceCurrency": "INR"
+    }
   }
 </script>
+
 
 @endsection
 @include('frontend.layouts.navbar')
