@@ -535,12 +535,12 @@ nav.scrolled {
 
 /* ── Chat UI mockup ── */
 .chat-mockup {
-    background: #fff;
+    background: none;
     border-radius: 24px;
-    box-shadow: var(--shadow-xl);
-    width: min(480px, 44vw);
+    /* box-shadow: var(--shadow-xl); */
+    width: min(751px, 55vw);
     overflow: hidden;
-    border: 1px solid var(--border);
+    /* border: 1px solid var(--border); */
     animation: floatUp 6s ease-in-out infinite;
 }
 

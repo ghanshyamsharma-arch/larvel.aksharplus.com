@@ -36,7 +36,7 @@
                 <li><a href="{{ route('home') }}#calling" title="Audio Calling">Audio Calling</a></li>
                 <li><a href="{{ route('home') }}#calling" title="Video Calling">Video Calling</a></li>
                 <li><a href="{{ route('home') }}#multicompany" title="Multi-Company">Multi-Company</a></li>
-                <li><a href="{{ route('home') }}#file" title="Media Library">Media Library</a></li>
+                <li><a href="{{ route('home') }}#files" title="Media Library">Media Library</a></li>
             </ul>
         </div>
         <div class="footer-col">
