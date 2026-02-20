@@ -41,21 +41,24 @@ function goHero(i) {
     });
 }
 
-document.getElementById("heroNext")?.onclick = () => {
-    clearTimeout(hTimer);
+const heroNext = document.getElementById("heroNext");
+const heroPrev = document.getElementById("heroPrev");
 
-    goHero(hIdx + 1);
+if (heroNext) {
+    heroNext.addEventListener("click", () => {
+        clearTimeout(hTimer);
+        goHero(hIdx + 1);
+        startH();
+    });
+}
 
-    startH();
-};
-
-document.getElementById("heroPrev")?.onclick = () => {
-    clearTimeout(hTimer);
-
-    goHero(hIdx - 1);
-
-    startH();
-};
+if (heroPrev) {
+    heroPrev.addEventListener("click", () => {
+        clearTimeout(hTimer);
+        goHero(hIdx - 1);
+        startH();
+    });
+}
 
 hDots.forEach((dot, index) => {
     dot.onclick = () => {
