@@ -2217,6 +2217,7 @@ footer::before {
 
     .hero-visual {
         max-width: 100%;
+        padding-bottom: 0;
     }
 
     .hamburger {
@@ -2240,9 +2241,9 @@ footer::before {
     }
 
     .hero-slide {
-        min-height: calc(100vh - 68px);
+        /* min-height: calc(100vh - 68px); */
         flex-direction: column;
-        padding: 40px 5%;
+        padding: 40px 5% 0;
         text-align: center;
     }
 
