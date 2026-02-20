@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Announcement;
 use App\Models\Company;
 use App\Models\HeroSection;
 use App\Models\Media;
@@ -34,7 +35,9 @@ class FrontendController extends Controller
 
         $links = Media::where('type', 'link')->get();
 
-
+        $announcements = Announcement::where('status', 1)
+            ->latest()
+            ->paginate(10);
         $services = Service::where('status', 'active')
             ->get();
         $stats = [
@@ -46,7 +49,7 @@ class FrontendController extends Controller
             ->get();
 
 
-        return view('frontend.home', compact('stats', 'testimonials', 'heroes', 'shared', 'services', 'included', 'video', 'multi', 'smartMessage', 'images', 'videos', 'audio', 'docs', 'links', 'reviewSec'));
+        return view('frontend.home', compact('stats', 'announcements', 'testimonials', 'heroes', 'shared', 'services', 'included', 'video', 'multi', 'smartMessage', 'images', 'videos', 'audio', 'docs', 'links', 'reviewSec'));
     }
     public function privacy()
     {

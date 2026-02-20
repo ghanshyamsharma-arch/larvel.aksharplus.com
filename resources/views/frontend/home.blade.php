@@ -116,10 +116,9 @@
     <div class="announce-marquee-wrap">
       <div class="announce-marquee">
         <h1 class="announce-h1">
-          Akshar Plus — The All-in-One Team Communication Platform &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp;
-          Live Chat · HD Video Calling · Screen Sharing · Smart File Management · Multi-Company Workspaces &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp;
-          Akshar Plus — The All-in-One Team Communication Platform &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp;
-          Live Chat · HD Video Calling · Screen Sharing · Smart File Management · Multi-Company Workspaces &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp;
+          @foreach($announcements as $announcement)
+          {{ $announcement->title }}
+          @endforeach
         </h1>
       </div>
     </div>
