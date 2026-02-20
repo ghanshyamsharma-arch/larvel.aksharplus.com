@@ -98,10 +98,10 @@
 
 
 @endsection
-@include('frontend.modals.contact-popup')
+
 
 @include('frontend.layouts.navbar')
-
+@include('frontend.modals.contact-popup')
 {{--
   Apni home.blade.php mein empty div ki jagah paste karo
   Nav ke neeche, hero section ke upar
