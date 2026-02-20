@@ -56,6 +56,16 @@
                         rows="6">{{ old('description') }}</textarea>
 
                 </div>
+                <div class="mb-3">
+
+                    <label class="form-label">Other Description *</label>
+
+                    <textarea name="other_description"
+                        id="editor1"
+                        class="form-control"
+                        rows="6">{{ old('other_description') }}</textarea>
+
+                </div>
 
 
 
@@ -223,6 +233,21 @@ display:none;">
 
 <script>
     CKEDITOR.replace('editor', {
+
+        height: 300,
+
+        allowedContent: true,
+
+        extraAllowedContent: '*(*);*{*}',
+
+        removeButtons: '',
+
+        removePlugins: 'elementspath',
+
+        resize_enabled: true
+
+    });
+    CKEDITOR.replace('editor1', {
 
         height: 300,
 

@@ -74,6 +74,7 @@ class PageController extends Controller
             'title' => $request->title,
 
             'description' => $request->description,
+            'other_description' => $request->other_description,
 
             'image' => $image,
 
@@ -131,6 +132,7 @@ class PageController extends Controller
             'title' => $request->title,
 
             'description' => $request->description,
+            'other_description' => $request->other_description,
 
             'seo_title' => $request->seo_title,
 

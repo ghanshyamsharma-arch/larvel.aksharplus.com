@@ -43,7 +43,16 @@
 
     </div>
 
+    <div class="mb-3">
 
+        <label class="form-label">Other Description *</label>
+
+        <textarea name="other_description"
+            id="editor1"
+            class="form-control"
+            rows="6">{{ $page->other_description }}</textarea>
+
+    </div>
 
     {{-- IMAGE --}}
 
@@ -186,6 +195,7 @@
 
 <script>
     CKEDITOR.replace('editor');
+    CKEDITOR.replace('editor1');
 </script>
 
 
