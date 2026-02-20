@@ -402,24 +402,30 @@ visible">
 
 <!-- ══════════════════ CALLING ══════════════════ -->
 <section class="calling-section" id="calling">
+  <div class="section-content">
+    <div class="section-label"><span class="dot" style="background:var(--magenta)"></span> {{$video->title}}</div>
+    {!!$video->description!!}
+  </div>
   <div class="calling-grid">
     <div class="calling-visual reveal visible">
       <img alt="Akshar Plus" title="Akshar Plus" src="{{ asset('storage/'.$video->image) }}">
     </div>
 
     <div class="reveal reveal-delay-2 visible">
-      <div class="section-label"><span class="dot" style="background:var(--magenta)"></span> {{$video->title}}</div>
-      {!!$video->description!!}
+      {!!$video->other_description!!}
     </div>
   </div>
 </section>
 
 <!-- ══════════════════ MULTI-COMPANY ══════════════════ -->
 <section class="multicomp-section" id="multicompany">
+  <div class="section-content">
+    <div class="section-label"><span class="dot" style="background:var(--teal)"></span> {{$multi->title}}</div>
+    {!!$multi->description!!}
+  </div>
   <div class="multicomp-grid">
     <div class="reveal visible">
-      <div class="section-label"><span class="dot" style="background:var(--teal)"></span> {{$multi->title}}</div>
-      {!!$multi->description!!}
+      {!!$multi->other_description!!}
     </div>
 
     <div class="reveal reveal-delay-2 visible">
