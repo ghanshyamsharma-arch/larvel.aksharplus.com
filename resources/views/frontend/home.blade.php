@@ -300,7 +300,7 @@
            border: 2px solid #7c3aed; 
            font-weight: 700; 
            cursor: pointer;">
-            Explore Features
+            Contact us
           </button>
         </div>
       </div>
