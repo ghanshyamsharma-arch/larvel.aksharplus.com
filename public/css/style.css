@@ -442,8 +442,8 @@ nav.scrolled {
 
 .hero-track {
     display: flex;
-    height: calc(100vh - 68px);
-    min-height: 600px;
+    /* height: calc(100vh - 68px);
+    min-height: 600px; */
     width: 100%;
     transition: transform .9s cubic-bezier(.77, 0, .175, 1);
     position: relative;
@@ -546,11 +546,7 @@ nav.scrolled {
     animation: floatUp 6s ease-in-out infinite;
 }
 
-@media(max-width:900px) {
-    .chat-mockup {
-        display: none;
-    }
-}
+
 
 .chat-top {
     background: var(--grad-brand);
@@ -2217,6 +2213,10 @@ footer::before {
 @media(max-width:900px) {
     .nav-links {
         display: none !important;
+    }
+
+    .hero-visual {
+        max-width: 100%;
     }
 
     .hamburger {
