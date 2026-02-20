@@ -383,7 +383,7 @@ nav.scrolled {
     margin-top: 68px;
     position: relative;
     overflow: hidden;
-    min-height: calc(100vh - 68px);
+    /* min-height: calc(100vh - 68px); */
 }
 
 /* animated mesh bg */
