@@ -53,7 +53,7 @@ class SitemapController extends Controller
 
         // ── BLOG POSTS (DYNAMIC) ────────────────────────────
         $blogs = Blog::where('status', 'published')
-            ->where('is_active', true)
+
             ->orderBy('published_at', 'desc')
             ->get();
 
