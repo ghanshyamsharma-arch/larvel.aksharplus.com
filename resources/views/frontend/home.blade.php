@@ -125,9 +125,9 @@
     </div>
 
     {{-- Right: Fixed close --}}
-    <button class="announce-close"
+    <!-- <button class="announce-close"
       onclick="document.getElementById('announceBar').style.display='none'"
-      title="Dismiss">✕</button>
+      title="Dismiss">✕</button> -->
 
   </div>
 </div>
