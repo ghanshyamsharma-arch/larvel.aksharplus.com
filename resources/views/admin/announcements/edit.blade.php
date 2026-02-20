@@ -1,4 +1,6 @@
-@extends('admin.layout')
+@extends('layouts.admin')
+
+@section('title','Announcements Edit')
 
 @section('content')
 
@@ -63,7 +65,7 @@
                     <label class="form-label">Status</label>
 
                     <select name="status"
-                        class="form-select">
+                        class="form-control">
 
                         <option value="1"
                             {{ $announcement->status ? 'selected' : '' }}>
