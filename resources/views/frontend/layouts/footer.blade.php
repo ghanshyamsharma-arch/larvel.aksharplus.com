@@ -46,6 +46,7 @@
                 <li><a href="https://www.shakuniya.in/aboutus_files/caareer.php" title="Careers">Careers</a></li>
                 <li><a href="{{ route('blog.index') }}" title="Blog">Blog</a></li>
                 <li><a href="https://www.shakuniya.in/aboutus_files/contact-us.php" title="Contact">Contact</a></li>
+                <li><a href="{{ route('sitemap.index') }}" title="Contact">Sitemap</a></li>
             </ul>
         </div>
         <div class="footer-col">
