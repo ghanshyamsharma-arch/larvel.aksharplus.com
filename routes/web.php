@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\SubscriberController as AdminSubscriberController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::prefix('blog')->name('blog.')->group(function () {
     Route::get('/{slug}', [BlogController::class, 'show'])->name('show');
 });
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::post(
     '/subscribe',
     [SubscriberController::class, 'store']

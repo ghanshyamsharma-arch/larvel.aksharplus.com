@@ -98,6 +98,8 @@
 
 
 @endsection
+@include('frontend.modals.contact-popup')
+
 @include('frontend.layouts.navbar')
 
 {{--
@@ -285,13 +287,21 @@
         </p>
         <div class="hero-btns">
 
-          <a title="Our demos" href="{{ (!empty($hero->button_link) && $hero->button_link != '#')  ?$hero->button_link: 'https://aksharplus.com/' }}" class="btn-cta">
+          <a target="_blank" title="Our demos" href="{{ (!empty($hero->button_link) && $hero->button_link != '#')  ?$hero->button_link: 'https://aksharplus.com/' }}" class="btn-cta">
             {{ (!empty($hero->button_text) && $hero->button_text != '#') ? $hero->button_text : 'Get demo' }} →
           </a>
 
-          <a href="{{ route('home') }}#features" class="btn-ghost" title="Feature section">
+          <button
+            onclick="openContactModal('explore_features')"
+            style="background: white; 
+           color: #7c3aed; 
+           padding: 14px 28px; 
+           border-radius: 12px; 
+           border: 2px solid #7c3aed; 
+           font-weight: 700; 
+           cursor: pointer;">
             Explore Features
-          </a>
+          </button>
         </div>
       </div>
       <div class="hero-visual">
@@ -451,11 +461,11 @@ visible">
 
 <!-- ══════════════════ FILES MEDIA SECTION ══════════════════ -->
 <section class="files-section" id="files">
+
   <div class="files-intro reveal visible">
     <div class="section-label"><span class="dot" style="background:var(--teal)"></span> {{$shared->title}}</div>
     {!!$shared->description!!}
   </div>
-
   <div class="files-tabs reveal visible">
     <button class="file-tab active" data-tab="images">🖼️ Images</button>
     <button class="file-tab" data-tab="videos">🎬 Videos</button>
