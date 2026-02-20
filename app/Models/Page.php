@@ -12,6 +12,7 @@ class Page extends Model
 
         'title',
         'description',
+        'other_description',
         'image',
         'seo_title',
         'seo_description',
