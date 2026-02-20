@@ -2289,6 +2289,15 @@ footer::before {
     .hero-arrow-row {
         display: none;
     }
+
+    .reveal.visible {
+        text-align: center;
+    }
+
+    .fc-icon {
+        display: block;
+        margin: auto;
+    }
 }
 
 .hero-slide {
