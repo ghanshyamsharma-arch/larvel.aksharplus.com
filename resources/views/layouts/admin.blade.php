@@ -850,7 +850,18 @@
       <span class="icon">📞</span> Manage Contacts
 
     </a>
+    <li class="nav-item">
 
+      <a href="{{ route('admin.announcements.index') }}"
+        class="nav-link">
+
+        <i class="bi bi-megaphone"></i>
+
+        <span>Announcements</span>
+
+      </a>
+
+    </li>
 
 
 
