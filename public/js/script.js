@@ -41,7 +41,7 @@ function goHero(i) {
     });
 }
 
-document.getElementById("heroNext").onclick = () => {
+document.getElementById("heroNext")?.onclick = () => {
     clearTimeout(hTimer);
 
     goHero(hIdx + 1);
@@ -49,7 +49,7 @@ document.getElementById("heroNext").onclick = () => {
     startH();
 };
 
-document.getElementById("heroPrev").onclick = () => {
+document.getElementById("heroPrev")?.onclick = () => {
     clearTimeout(hTimer);
 
     goHero(hIdx - 1);
