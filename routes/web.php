@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -111,6 +112,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         //Contact us
         Route::get('/contacts', [ContactController::class, 'index'])
             ->name('contacts.index');
+        //announcements
+        Route::resource('announcements', AnnouncementController::class);
     });
     //Subscribe
     Route::get(
