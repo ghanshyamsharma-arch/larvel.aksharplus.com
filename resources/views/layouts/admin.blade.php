@@ -218,6 +218,10 @@
       width: 100%;
     }
 
+    li.page-item {
+      list-style: none;
+    }
+
     .logout-btn:hover {
       background: rgba(239, 68, 68, .15);
       color: #f87171;
@@ -839,10 +843,15 @@
       <a href="{{ route('admin.social-links.index') }}" class="nav-item {{ request()->routeIs('admin.social-links.*') ? 'active' : '' }}">
         <span class="icon">🚰</span> Manage Social Links
       </a>
-      <a href="{{ route('admin.subscribers.index') }}" class="nav-item {{ request()->routeIs('admin.subscribers.*') ? 'active' : '' }}">
-        <span class="icon">✉️</span> Manage Subscribers
-      </a>
     </div>
+    <a href="{{ route('admin.contacts.index') }}"
+      class="nav-item {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
+
+      <span class="icon">📞</span> Manage Contacts
+
+    </a>
+
+
 
 
     <div class="nav-section">

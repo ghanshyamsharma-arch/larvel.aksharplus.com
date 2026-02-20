@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
+    public function index()
+    {
+        $contacts = Contact::latest()->paginate(10);
+
+        return view('admin.contacts.index', compact('contacts'));
+    }
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [

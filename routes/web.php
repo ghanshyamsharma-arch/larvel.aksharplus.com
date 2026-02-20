@@ -108,6 +108,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->name('social-links.toggle-status');
         Route::post('social-links/reorder', [SocialLinkController::class, 'reorder'])
             ->name('social-links.reorder');
+        //Contact us
+        Route::get('/contacts', [ContactController::class, 'index'])
+            ->name('contacts.index');
     });
     //Subscribe
     Route::get(
