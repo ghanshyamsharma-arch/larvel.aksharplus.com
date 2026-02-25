@@ -672,11 +672,21 @@ visible">
 </section>
 @include('frontend.layouts.footer')
 <script>
-  document.body.addEventListener("click", function(e) {
+  ocument.body.addEventListener("click", function(e) {
+
     if (e.target.closest(".headin-action")) {
-      document.querySelectorAll(".after-action").forEach(el => {
+
+      document.querySelectorAll(".after-action").forEach(function(el) {
         el.classList.toggle("show");
       });
+
+    } else {
+
+      document.querySelectorAll(".after-action").forEach(function(el) {
+        el.classList.remove("show");
+      });
+
     }
+
   });
 </script>
