@@ -578,7 +578,7 @@ visible">
     </div>
   </div>
 </section>
-<section class="pinschedule-section" id="pinschedule">
+<section class="pinschedule-section content-sec" id="pinschedule">
   <div style="text-align:center;margin-bottom:72px;" class="reveal visible headin-action">
     {{$pagecontent->title}}
   </div>
@@ -671,3 +671,8 @@ visible">
   </div>
 </section>
 @include('frontend.layouts.footer')
+<script>
+  $("body").on("click", ".headin-action", function() {
+    $(".after-action").toggle();
+  });
+</script>

@@ -2525,3 +2525,12 @@ img {
 .multicomp-grid li {
     align-items: start !important;
 }
+
+section.pinschedule-section.content-sec {
+    padding: 20px;
+}
+
+.reveal.visible.headin-action {
+    font-weight: bold;
+    cursor: pointer;
+}
