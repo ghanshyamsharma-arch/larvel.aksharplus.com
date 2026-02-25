@@ -2542,3 +2542,16 @@ section.pinschedule-section.content-sec {
 .after-action.show {
     display: block;
 }
+
+.ps-grid.after-action {
+    max-width: 1200px;
+    margin: auto;
+    line-height: 42px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.ps-grid.after-action ol,
+.ps-grid.after-action ul {
+    padding-left: 20px;
+}

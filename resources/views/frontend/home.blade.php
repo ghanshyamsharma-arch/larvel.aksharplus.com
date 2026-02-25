@@ -579,7 +579,7 @@ visible">
   </div>
 </section>
 <section class="pinschedule-section content-sec" id="pinschedule">
-  <div style="text-align:center;margin-bottom:72px;" class="reveal visible headin-action">
+  <div style="text-align:center;margin-bottom:25px;" class="reveal visible headin-action">
     {{$pagecontent->title}}
   </div>
   <div class="ps-grid after-action">
