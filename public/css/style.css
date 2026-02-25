@@ -2533,6 +2533,11 @@ section.pinschedule-section.content-sec {
 .reveal.visible.headin-action {
     font-weight: bold;
     cursor: pointer;
+    font-weight: 700;
+    font-size: 30px;
+    background: linear-gradient(90deg, #c026d3 0%, #7c3aed 35%, #2563eb 70%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .after-action {
