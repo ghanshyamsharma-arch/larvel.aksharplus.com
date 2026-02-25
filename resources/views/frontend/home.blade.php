@@ -674,17 +674,17 @@ visible">
 <script>
   document.body.addEventListener("click", function(e) {
 
-    if (e.target.closest(".headin-action")) {
+    const heading = e.target.closest(".headin-action");
 
-      document.querySelectorAll(".after-action").forEach(function(el) {
-        el.classList.toggle("show");
-      });
+    if (heading) {
 
-    } else {
+      const actionDiv = heading.nextElementSibling;
 
-      document.querySelectorAll(".after-action").forEach(function(el) {
-        el.classList.remove("show");
-      });
+      if (actionDiv && actionDiv.classList.contains("after-action")) {
+
+        actionDiv.classList.toggle("show");
+
+      }
 
     }
 
