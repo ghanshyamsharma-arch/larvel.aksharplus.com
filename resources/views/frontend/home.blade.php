@@ -95,6 +95,62 @@
     }
   }
 </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Can AksharPlus manage multiple organisations or clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! AksharPlus supports multi-company workspaces, which allows teams to manage different organisations or clients in one platform while keeping data separate and secure."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Yes! AksharPlus supports multi-company workspaces, which allows teams to manage different organisations or clients in one platform while keeping data separate and secure.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By combining messaging, calls, task management, and file sharing in one place, AksharPlus reduces time wasted on switching apps. Teams can communicate instantly, track progress, and collaborate efficiently, making work faster and more organised."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Does AksharPlus support scheduling important messages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it allows users to pin important messages for visibility and schedule messages to be sent at specific times. This ensures critical updates are delivered on time and don’t get overlooked."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Can AksharPlus be used for remote teams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, AksharPlus is perfect for remote teams. Its live chat, audio/video calls, and shared media library allow team members to stay connected and collaborate effectively, no matter where they are."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Is AksharPlus secure to use for business communication?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, AksharPlus is designed to provide a secure environment for team communication and collaboration. It allows organisations to manage their workspaces safely while keeping conversations and shared files protected within the platform."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Does AksharPlus reduce security risks compared to using multiple apps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, using one central platform instead of multiple tools can reduce security risks. When communication, files, and project management are handled in one place, there are fewer chances of data leaks or miscommunication across different systems."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Does AksharPlus support audio and video calling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it supports both audio and video calling, making meetings and discussions easy without needing external tools."
+      }
+    }]
+  }
+</script>
 
 
 @endsection
@@ -106,7 +162,7 @@
   Apni home.blade.php mein empty div ki jagah paste karo
   Nav ke neeche, hero section ke upar
 --}}
-<div class="announce-bar" id="announceBar">
+<!--<div class="announce-bar" id="announceBar">
   <div class="announce-inner">
 
     {{-- Left: Fixed dot --}}
@@ -124,12 +180,11 @@
     </div>
 
     {{-- Right: Fixed close --}}
-    <!-- <button class="announce-close"
+     <button class="announce-close"
       onclick="document.getElementById('announceBar').style.display='none'"
-      title="Dismiss">✕</button> -->
-
+      title="Dismiss">✕</button> 
   </div>
-</div>
+</div>-->
 
 <style>
   .announce-bar {
@@ -273,13 +328,13 @@
         </div>
 
 
-        <h3 class="hero-h1">
+        <h2 class="hero-h1">
           {!! nl2br(e($hero->title)) !!}
           <br>
           <span class="grad-text">
             {{ $hero->highlight_text }}
           </span>
-        </h3>
+        </h2>
         <p class="hero-p">
           {{ $hero->description }}
 
@@ -581,6 +636,7 @@ visible">
 <section class="pinschedule-section content-sec" id="pinschedule">
   <div style="text-align:center;margin-bottom:25px;" class="reveal visible headin-action">
     {{$pagecontent->title}}
+    <spna class="firstspn"> &nbsp; &nbsp; + </spna>
   </div>
   <div class="ps-grid after-action">
     {!!$pagecontent->description!!}
@@ -679,10 +735,22 @@ visible">
     if (heading) {
 
       const actionDiv = heading.nextElementSibling;
+      const firstSpan = heading.querySelector(".firstspn");
 
       if (actionDiv && actionDiv.classList.contains("after-action")) {
 
         actionDiv.classList.toggle("show");
+
+        // ✅ check show hai ya nahi
+        if (actionDiv.classList.contains("show")) {
+
+          if (firstSpan) firstSpan.innerHTML = "&nbsp;&nbsp; -";
+
+        } else {
+
+          if (firstSpan) firstSpan.innerHTML = "&nbsp;&nbsp; +";
+
+        }
 
       }
 
