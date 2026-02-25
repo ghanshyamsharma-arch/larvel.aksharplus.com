@@ -634,10 +634,10 @@ visible">
   </div>
 </section>
 <section class="pinschedule-section content-sec" id="pinschedule">
-  <div style="text-align:center;margin-bottom:25px;" class="reveal visible headin-action">
+  <h1 style="text-align:center;margin-bottom:25px;" class="reveal visible headin-action">
     {{$pagecontent->title}}
     <spna class="firstspn"> &nbsp; &nbsp; + </spna>
-  </div>
+  </h1>
   <div class="ps-grid after-action">
     {!!$pagecontent->description!!}
   </div>
