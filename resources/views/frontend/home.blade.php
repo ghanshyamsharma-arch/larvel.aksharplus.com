@@ -584,7 +584,6 @@ visible">
   </div>
   <div class="ps-grid after-action">
     {!!$pagecontent->description!!}
-    <button class="headin-action">Less</button>
   </div>
 
 </section>
