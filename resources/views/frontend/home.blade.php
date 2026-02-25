@@ -672,7 +672,7 @@ visible">
 </section>
 @include('frontend.layouts.footer')
 <script>
-  ocument.body.addEventListener("click", function(e) {
+  document.body.addEventListener("click", function(e) {
 
     if (e.target.closest(".headin-action")) {
 
