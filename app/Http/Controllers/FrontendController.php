@@ -24,6 +24,7 @@ class FrontendController extends Controller
         $smartMessage = Page::where('id', 4)->first();
         $reviewSec = Page::where('id', 5)->first();
         $shared = Page::where('id', 8)->first();
+        $pagecontent = Page::where('id', 9)->first();
         //Media
         $images = Media::where('type', 'image')->get();
 
@@ -49,7 +50,7 @@ class FrontendController extends Controller
             ->get();
 
 
-        return view('frontend.home', compact('stats', 'announcements', 'testimonials', 'heroes', 'shared', 'services', 'included', 'video', 'multi', 'smartMessage', 'images', 'videos', 'audio', 'docs', 'links', 'reviewSec'));
+        return view('frontend.home', compact('stats', 'pagecontent', 'announcements', 'testimonials', 'heroes', 'shared', 'services', 'included', 'video', 'multi', 'smartMessage', 'images', 'videos', 'audio', 'docs', 'links', 'reviewSec'));
     }
     public function privacy()
     {
