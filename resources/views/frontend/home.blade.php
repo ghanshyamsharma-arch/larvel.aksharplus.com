@@ -672,7 +672,11 @@ visible">
 </section>
 @include('frontend.layouts.footer')
 <script>
-  $("body").on("click", ".headin-action", function() {
-    $(".after-action").toggle();
+  document.body.addEventListener("click", function(e) {
+    if (e.target.closest(".headin-action")) {
+      document.querySelectorAll(".after-action").forEach(el => {
+        el.classList.toggle("show");
+      });
+    }
   });
 </script>
