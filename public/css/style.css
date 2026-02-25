@@ -2534,3 +2534,11 @@ section.pinschedule-section.content-sec {
     font-weight: bold;
     cursor: pointer;
 }
+
+.after-action {
+    display: none;
+}
+
+.after-action.show {
+    display: block;
+}
